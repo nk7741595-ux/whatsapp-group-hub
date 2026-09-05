@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>WhatsApp Groups Pakistan – Join Active WhatsApp Groups | WhatsApp Group Hub</title>
+  <title>Pak Point | Latest Pakistan & World News</title>
 
-  <meta name="description" content="Find and join active WhatsApp groups in Pakistan. Discover education, jobs, business, technology, news and social WhatsApp groups.">
-  <meta name="keywords" content="WhatsApp Groups Pakistan, WhatsApp groups, Pakistan WhatsApp groups, join WhatsApp groups">
+  <meta name="description" content="Pak Point brings you the latest Pakistan and world news, breaking news, technology, sports, business, education and informative articles.">
+  <meta name="keywords" content="Pak Point, Pakistan News, World News, Breaking News, Urdu News, Technology, Sports, Business, Education">
+
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://nk7741595-ux.github.io/whatsapp-group-hub/">
 
-  <meta property="og:title" content="WhatsApp Groups Pakistan | WhatsApp Group Hub">
-  <meta property="og:description" content="Find and join active WhatsApp groups in Pakistan.">
-  <meta property="og:url" content="https://nk7741595-ux.github.io/whatsapp-group-hub/">
+  <meta property="og:title" content="Pak Point | Latest Pakistan & World News">
+  <meta property="og:description" content="Latest Pakistan and world news, breaking news and informative articles.">
   <meta property="og:type" content="website">
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -28,670 +29,1224 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f5f7;
+      color: #161616;
     }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* TOP BAR */
+
+    .topbar {
+      background: #111;
+      color: #fff;
+      padding: 8px 5%;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: #fff;
+      margin-left: 15px;
+    }
+
+    /* HEADER */
 
     header {
-      background: #128c7e;
-      color: white;
-      padding: 28px 15px;
-      text-align: center;
+      background: #fff;
+      padding: 22px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
+    .logo {
+      font-size: 38px;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: -1px;
     }
 
-    header p {
-      margin: 10px 0 0;
-      font-size: 17px;
+    .logo span {
+      color: #d71920;
     }
 
-    nav {
-      background: #075e54;
-      text-align: center;
-      padding: 12px 8px;
+    .tagline {
+      color: #777;
+      font-size: 13px;
+      margin-top: 5px;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
+    .header-right {
+      text-align: right;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      background: #111;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .navbar a {
+      color: #fff;
+      padding: 16px 14px;
+      font-size: 14px;
       font-weight: bold;
+    }
+
+    .navbar a:hover {
+      background: #d71920;
+    }
+
+    .menu-active {
+      background: #d71920;
+    }
+
+    /* BREAKING */
+
+    .breaking {
+      background: #d71920;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 10px 5%;
+      overflow: hidden;
+    }
+
+    .breaking-title {
+      background: #111;
+      padding: 7px 12px;
+      font-weight: bold;
+      margin-right: 15px;
+      white-space: nowrap;
+    }
+
+    #breakingText {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* MAIN */
+
+    .container {
+      width: 90%;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    /* FEATURED */
+
+    .featured {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    .featured-main {
+      position: relative;
+      height: 430px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #222;
+    }
+
+    .featured-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .82;
+    }
+
+    .featured-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 35px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(0,0,0,.9));
+    }
+
+    .featured-overlay h1 {
+      font-size: 32px;
+      margin: 10px 0;
+      line-height: 1.2;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #d71920;
+      color: #fff;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 3px;
+    }
+
+    .featured-side {
+      display: grid;
+      gap: 20px;
+    }
+
+    .side-card {
+      background: #fff;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    }
+
+    .side-card img {
+      width: 130px;
+      height: 105px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .side-card h3 {
+      margin: 7px 0;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    /* CONTENT */
+
+    .content-area {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #111;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      padding-bottom: 10px;
+      border-bottom: 4px solid #d71920;
+      font-size: 24px;
+    }
+
+    /* SEARCH */
+
+    .search {
+      margin-bottom: 20px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    /* ARTICLES */
+
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .article-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+      transition: .2s;
+    }
+
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,.12);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .article-body {
+      padding: 17px;
+    }
+
+    .article-body h3 {
+      margin: 9px 0;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .article-body p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .article-meta {
+      color: #888;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .read-more {
+      display: inline-block;
+      color: #d71920;
+      font-weight: bold;
+      margin-top: 8px;
       font-size: 14px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    /* SIDEBAR */
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
+    .sidebar-box {
+      background: #fff;
       padding: 20px;
-    }
-
-    .hero {
-      text-align: center;
-      background: white;
-      padding: 40px 20px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.06);
-    }
-
-    .hero h2 {
-      margin-top: 0;
-      font-size: 28px;
-    }
-
-    .hero p {
-      line-height: 1.7;
-      max-width: 750px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 30px 0 20px;
-    }
-
-    .groups {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
-    }
-
-    .card h3 {
-      margin-top: 8px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      line-height: 1.6;
-      color: #555;
-    }
-
-    .category {
-      display: inline-block;
-      background: #e8f5e9;
-      color: #075e54;
-      padding: 6px 11px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .join-btn {
-      display: inline-block;
-      background: #128c7e;
-      color: white;
-      text-decoration: none;
-      padding: 11px 20px;
-      border-radius: 7px;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    .join-btn:hover {
-      opacity: .9;
-    }
-
-    .form-box,
-    .contact-box {
-      background: white;
-      padding: 28px;
-      border-radius: 12px;
-      margin-top: 35px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.06);
-    }
-
-    .form-box h2,
-    .contact-box h2 {
-      text-align: center;
-      margin-top: 0;
-    }
-
-    .form-box > p,
-    .contact-box > p {
-      text-align: center;
-      color: #555;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0 15px;
-      border: 1px solid #ccc;
-      border-radius: 7px;
-      font-size: 15px;
-      font-family: Arial, sans-serif;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    button {
-      width: 100%;
-      background: #128c7e;
-      color: white;
-      border: 0;
-      padding: 13px 22px;
-      border-radius: 7px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    button:hover {
-      opacity: .9;
-    }
-
-    #message {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .contact-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .contact-btn {
-      display: inline-block;
-      color: white;
-      text-decoration: none;
-      padding: 12px 22px;
+      margin-bottom: 20px;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+
+    .sidebar-box h3 {
+      margin-top: 0;
+      border-bottom: 2px solid #111;
+      padding-bottom: 10px;
+    }
+
+    .category-list a {
+      display: block;
+      padding: 11px 0;
+      border-bottom: 1px solid #eee;
+      color: #333;
       font-weight: bold;
     }
 
-    .whatsapp {
+    .category-list a:hover {
+      color: #d71920;
+    }
+
+    .social-btn {
+      display: block;
+      color: #fff;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .wa {
       background: #25D366;
     }
 
-    .email {
-      background: #555;
-    }
-
-    .facebook {
+    .fb {
       background: #1877F2;
     }
 
-    .admin-link {
-      text-align: center;
-      margin-top: 25px;
+    .mail {
+      background: #555;
     }
 
-    .admin-link a {
-      color: #128c7e;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    /* EMPTY */
 
-    footer {
-      text-align: center;
-      padding: 30px 15px;
-      margin-top: 45px;
-      background: #222;
-      color: white;
-    }
-
-    footer p {
-      margin: 6px 0;
-    }
-
-    .loading {
+    .empty {
+      background: #fff;
+      padding: 30px;
       text-align: center;
       grid-column: 1 / -1;
-      padding: 20px;
+      border-radius: 8px;
+      color: #777;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 26px;
+    /* FOOTER */
+
+    footer {
+      margin-top: 50px;
+      background: #111;
+      color: #ddd;
+      padding: 40px 5%;
+    }
+
+    .footer-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      color: #fff;
+    }
+
+    footer a {
+      color: #bbb;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #333;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #888;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:800px) {
+
+      .topbar {
+        display: none;
       }
 
-      .hero h2 {
-        font-size: 23px;
+      header {
+        padding: 18px 5%;
       }
 
-      nav a {
-        display: inline-block;
-        margin: 5px 7px;
+      .logo {
+        font-size: 30px;
       }
+
+      .header-right {
+        display: none;
+      }
+
+      .featured {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-main {
+        height: 330px;
+      }
+
+      .featured-overlay h1 {
+        font-size: 24px;
+      }
+
+      .content-area {
+        grid-template-columns: 1fr;
+      }
+
+      .articles {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media(max-width:500px) {
 
       .container {
-        padding: 14px;
+        width: 94%;
       }
+
+      .breaking {
+        padding: 8px 3%;
+      }
+
+      .breaking-title {
+        font-size: 12px;
+      }
+
+      .featured-main {
+        height: 290px;
+      }
+
+      .featured-overlay {
+        padding: 20px;
+      }
+
+      .featured-overlay h1 {
+        font-size: 21px;
+      }
+
+      .side-card {
+        grid-template-columns: 100px 1fr;
+      }
+
+      .side-card img {
+        width: 100px;
+        height: 90px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>WhatsApp Groups Pakistan</h1>
-  <p>Find & Join Active WhatsApp Groups</p>
-</header>
 
-<nav>
-  <a href="#groups-section">Groups</a>
-  <a href="#submit">Submit Group</a>
-  <a href="#contact">Contact Us</a>
-</nav>
+<!-- TOP BAR -->
 
-<div class="container">
+<div class="topbar">
 
-  <section class="hero">
-    <h2>Find & Join WhatsApp Groups in Pakistan</h2>
+  <div>
+    Welcome to Pak Point
+  </div>
 
-    <p>
-      Discover useful WhatsApp groups for education, jobs, business,
-      technology, news and social communities. Browse approved groups
-      and join the communities that interest you.
-    </p>
-  </section>
+  <div>
+    <span id="today"></span>
 
-  <section id="groups-section">
-    <h2 class="section-title">Latest WhatsApp Groups</h2>
-
-    <div id="groups" class="groups">
-      <p class="loading">Loading approved groups...</p>
-    </div>
-  </section>
-
-  <section id="submit" class="form-box">
-
-    <h2>Submit Your WhatsApp Group</h2>
-
-    <p>
-      Have a WhatsApp group? Submit it here.
-      Your group will be reviewed before appearing publicly.
-    </p>
-
-    <form id="groupForm">
-
-      <label for="groupName">Group Name</label>
-
-      <input
-        type="text"
-        id="groupName"
-        maxlength="100"
-        required
-        placeholder="Enter group name"
-      >
-
-      <label for="category">Category</label>
-
-      <select id="category" required>
-        <option value="">Select category</option>
-        <option value="Education">Education</option>
-        <option value="Jobs & Careers">Jobs & Careers</option>
-        <option value="Business">Business</option>
-        <option value="Technology">Technology</option>
-        <option value="News">News</option>
-        <option value="Social">Social</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <label for="description">Description</label>
-
-      <textarea
-        id="description"
-        maxlength="500"
-        required
-        placeholder="Describe your WhatsApp group"
-      ></textarea>
-
-      <label for="groupLink">WhatsApp Group Link</label>
-
-      <input
-        type="url"
-        id="groupLink"
-        required
-        placeholder="https://chat.whatsapp.com/..."
-      >
-
-      <button type="submit">
-        Submit Group
-      </button>
-
-      <div id="message"></div>
-
-    </form>
-
-  </section>
-
-  <section id="contact" class="contact-box">
-
-    <h2>Contact Us</h2>
-
-    <p>
-      WhatsApp Group Hub se rabta karne ke liye neeche diye gaye options use karein.
-    </p>
-
-    <div class="contact-buttons">
-
-      <a
-        class="contact-btn whatsapp"
-        href="https://wa.me/923397381786"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        💬 WhatsApp
-      </a>
-
-      <a
-        class="contact-btn email"
-        href="mailto:nk7741595@gmail.com"
-      >
-        📧 Email
-      </a>
-
-      <a
-        class="contact-btn facebook"
-        href="https://www.facebook.com/share/14jPJR3FZNZ/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        📘 Facebook
-      </a>
-
-    </div>
-
-  </section>
-
-  <div class="admin-link">
-    <a href="admin.html">🔐 Admin Panel</a>
+    <a href="#contact">Contact</a>
   </div>
 
 </div>
 
+
+<!-- HEADER -->
+
+<header>
+
+  <div>
+
+    <div class="logo">
+      PAK <span>POINT</span>
+    </div>
+
+    <div class="tagline">
+      News • Views • Information
+    </div>
+
+  </div>
+
+  <div class="header-right">
+    Pakistan & World<br>
+    Latest Updates
+  </div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav class="navbar">
+
+  <a href="#" class="menu-active">
+    HOME
+  </a>
+
+  <a href="#" onclick="filterCategory('Pakistan'); return false;">
+    PAKISTAN
+  </a>
+
+  <a href="#" onclick="filterCategory('World'); return false;">
+    WORLD
+  </a>
+
+  <a href="#" onclick="filterCategory('Technology'); return false;">
+    TECHNOLOGY
+  </a>
+
+  <a href="#" onclick="filterCategory('Sports'); return false;">
+    SPORTS
+  </a>
+
+  <a href="#" onclick="filterCategory('Business'); return false;">
+    BUSINESS
+  </a>
+
+  <a href="#" onclick="filterCategory('Education'); return false;">
+    EDUCATION
+  </a>
+
+  <a href="#" onclick="filterCategory('Entertainment'); return false;">
+    ENTERTAINMENT
+  </a>
+
+</nav>
+
+
+<!-- BREAKING NEWS -->
+
+<div class="breaking">
+
+  <div class="breaking-title">
+    BREAKING
+  </div>
+
+  <div id="breakingText">
+    Latest news and updates from Pak Point
+  </div>
+
+</div>
+
+
+<main class="container">
+
+
+  <!-- FEATURED -->
+
+  <section class="featured">
+
+    <div
+      id="featuredMain"
+      class="featured-main"
+    >
+
+      <div
+        style="
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:white;
+        "
+      >
+        Latest Article Loading...
+      </div>
+
+    </div>
+
+
+    <div
+      id="featuredSide"
+      class="featured-side"
+    >
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTENT -->
+
+  <section class="content-area">
+
+
+    <!-- MAIN ARTICLES -->
+
+    <div>
+
+      <div class="section-header">
+
+        <h2>
+          Latest News
+        </h2>
+
+      </div>
+
+
+      <div class="search">
+
+        <input
+          type="search"
+          id="search"
+          placeholder="🔎 Search news and articles..."
+        >
+
+      </div>
+
+
+      <div
+        id="articles"
+        class="articles"
+      >
+
+        <div class="empty">
+          Loading latest articles...
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SIDEBAR -->
+
+    <aside>
+
+
+      <div class="sidebar-box">
+
+        <h3>
+          Categories
+        </h3>
+
+        <div class="category-list">
+
+          <a href="#" onclick="filterCategory('All'); return false;">
+            All News
+          </a>
+
+          <a href="#" onclick="filterCategory('Pakistan'); return false;">
+            Pakistan
+          </a>
+
+          <a href="#" onclick="filterCategory('World'); return false;">
+            World
+          </a>
+
+          <a href="#" onclick="filterCategory('Technology'); return false;">
+            Technology
+          </a>
+
+          <a href="#" onclick="filterCategory('Sports'); return false;">
+            Sports
+          </a>
+
+          <a href="#" onclick="filterCategory('Business'); return false;">
+            Business
+          </a>
+
+          <a href="#" onclick="filterCategory('Education'); return false;">
+            Education
+          </a>
+
+          <a href="#" onclick="filterCategory('Entertainment'); return false;">
+            Entertainment
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="contact"
+        class="sidebar-box"
+      >
+
+        <h3>
+          Contact Pak Point
+        </h3>
+
+        <a
+          class="social-btn wa"
+          href="https://wa.me/923397381786"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💬 WhatsApp
+        </a>
+
+
+        <a
+          class="social-btn fb"
+          href="https://www.facebook.com/share/14jPJR3FZNZ/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📘 Facebook
+        </a>
+
+
+        <a
+          class="social-btn mail"
+          href="mailto:nk7741595@gmail.com"
+        >
+          📧 Email
+        </a>
+
+      </div>
+
+
+      <div class="sidebar-box">
+
+        <h3>
+          About Pak Point
+        </h3>
+
+        <p style="line-height:1.7;color:#666;">
+          Pak Point ایک آزاد نیوز اور معلوماتی پلیٹ فارم ہے
+          جہاں پاکستان، دنیا، ٹیکنالوجی، کھیل، کاروبار اور
+          دیگر اہم موضوعات سے متعلق مضامین شائع کیے جائیں گے۔
+        </p>
+
+      </div>
+
+    </aside>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
 <footer>
 
-  <p>© 2026 WhatsApp Group Hub | Muhammad Naveed</p>
+  <div class="footer-grid">
 
-  <p>
-    Find and join useful WhatsApp groups in Pakistan.
-  </p>
+
+    <div>
+
+      <h3>
+        PAK POINT
+      </h3>
+
+      <p style="line-height:1.7;color:#aaa;">
+        Latest Pakistan and world news,
+        informative articles and important updates.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Quick Links
+      </h3>
+
+      <a href="#">
+        Home
+      </a>
+
+      <a href="#contact">
+        Contact Us
+      </a>
+
+      <a href="admin.html">
+        Admin Panel
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Follow Us
+      </h3>
+
+      <a
+        href="https://www.facebook.com/share/14jPJR3FZNZ/"
+        target="_blank"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://wa.me/923397381786"
+        target="_blank"
+      >
+        WhatsApp
+      </a>
+
+      <a href="mailto:nk7741595@gmail.com">
+        Email
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="copyright">
+
+    © 2026 Pak Point | Muhammad Naveed
+
+  </div>
 
 </footer>
 
 
 <script type="module">
 
+
   import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+  from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
 
   import {
+
     getFirestore,
+
     collection,
-    addDoc,
+
     getDocs,
+
     query,
+
     where
-  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+  }
+
+  from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
   const firebaseConfig = {
 
-    apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
+    apiKey:
+    "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
 
-    authDomain: "whatsapp-group-hub-2513a.firebaseapp.com",
+    authDomain:
+    "whatsapp-group-hub-2513a.firebaseapp.com",
 
-    projectId: "whatsapp-group-hub-2513a",
+    projectId:
+    "whatsapp-group-hub-2513a",
 
-    storageBucket: "whatsapp-group-hub-2513a.firebasestorage.app",
+    storageBucket:
+    "whatsapp-group-hub-2513a.firebasestorage.app",
 
-    messagingSenderId: "997714850617",
+    messagingSenderId:
+    "997714850617",
 
-    appId: "1:997714850617:web:512eaa8131b882da25aee8",
+    appId:
+    "1:997714850617:web:512eaa8131b882da25aee8",
 
-    measurementId: "G-G3D7KLK9BM"
+    measurementId:
+    "G-G3D7KLK9BM"
 
   };
 
 
-  const app = initializeApp(firebaseConfig);
+  const app =
+    initializeApp(firebaseConfig);
 
-  const db = getFirestore(app);
+
+  const db =
+    getFirestore(app);
 
 
-  const groupsContainer =
-    document.getElementById("groups");
+  const articlesContainer =
+    document.getElementById("articles");
 
-  const form =
-    document.getElementById("groupForm");
 
-  const message =
-    document.getElementById("message");
+  const featuredMain =
+    document.getElementById("featuredMain");
 
+
+  const featuredSide =
+    document.getElementById("featuredSide");
+
+
+  let allArticles = [];
+
+  let selectedCategory = "All";
+
+
+  /* DATE */
+
+  document.getElementById("today").textContent =
+    new Date().toLocaleDateString(
+      "en-PK",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    );
+
+
+  /* ESCAPE HTML */
 
   function escapeHTML(text) {
 
-    const div = document.createElement("div");
+    const div =
+      document.createElement("div");
 
-    div.textContent = text;
+    div.textContent =
+      text || "";
 
     return div.innerHTML;
 
   }
 
 
-  async function loadGroups() {
+  /* DATE FORMAT */
 
-    groupsContainer.innerHTML =
-      '<p class="loading">Loading approved groups...</p>';
+  function formatDate(timestamp) {
+
+    if (!timestamp) return "";
 
     try {
 
-      const q = query(
-        collection(db, "groups"),
-        where("status", "==", "approved")
+      const date =
+        timestamp.toDate
+        ? timestamp.toDate()
+        : new Date(timestamp);
+
+      return date.toLocaleDateString(
+        "en-PK",
+        {
+          day: "numeric",
+          month: "short",
+          year: "numeric"
+        }
       );
 
-      const snapshot = await getDocs(q);
+    } catch {
 
-      groupsContainer.innerHTML = "";
-
-
-      if (snapshot.empty) {
-
-        groupsContainer.innerHTML =
-          '<p class="loading">No approved groups available yet.</p>';
-
-        return;
-
-      }
-
-
-      const groups = [];
-
-
-      snapshot.forEach((doc) => {
-
-        groups.push({
-          id: doc.id,
-          ...doc.data()
-        });
-
-      });
-
-
-      groups.sort((a, b) => {
-
-        const aTime =
-          a.createdAt?.seconds || 0;
-
-        const bTime =
-          b.createdAt?.seconds || 0;
-
-        return bTime - aTime;
-
-      });
-
-
-      groups.forEach(group => {
-
-        const card =
-          document.createElement("div");
-
-        card.className = "card";
-
-
-        card.innerHTML = `
-
-          <span class="category">
-            ${escapeHTML(group.category || "Other")}
-          </span>
-
-          <h3>
-            ${escapeHTML(group.name || "WhatsApp Group")}
-          </h3>
-
-          <p>
-            ${escapeHTML(group.description || "")}
-          </p>
-
-          <a
-            class="join-btn"
-            href="${escapeHTML(group.link || "#")}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join Group
-          </a>
-
-        `;
-
-
-        groupsContainer.appendChild(card);
-
-      });
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      groupsContainer.innerHTML =
-        '<p class="loading">Unable to load groups right now.</p>';
+      return "";
 
     }
 
   }
 
 
-  form.addEventListener("submit", async (e) => {
+  /* DISPLAY ARTICLES */
 
-    e.preventDefault();
-
-
-    message.textContent =
-      "Submitting...";
+  function displayArticles() {
 
 
-    const name =
-      document.getElementById("groupName")
-        .value.trim();
+    const searchValue =
+      document
+      .getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
 
 
-    const category =
-      document.getElementById("category")
-        .value;
+    const filtered =
+      allArticles.filter(article => {
 
 
-    const description =
-      document.getElementById("description")
-        .value.trim();
+        const title =
+          (article.title || "")
+          .toLowerCase();
 
 
-    const link =
-      document.getElementById("groupLink")
-        .value.trim();
+        const description =
+          (article.description || "")
+          .toLowerCase();
 
 
-    if (!link.startsWith(
-      "https://chat.whatsapp.com/"
-    )) {
+        const category =
+          (article.category || "")
+          .toLowerCase();
 
-      message.textContent =
-        "❌ Please enter a valid WhatsApp group link.";
+
+        const searchMatch =
+          !searchValue ||
+          title.includes(searchValue) ||
+          description.includes(searchValue) ||
+          category.includes(searchValue);
+
+
+        const categoryMatch =
+          selectedCategory === "All" ||
+          article.category === selectedCategory;
+
+
+        return searchMatch && categoryMatch;
+
+      });
+
+
+    articlesContainer.innerHTML = "";
+
+
+    if (!filtered.length) {
+
+      articlesContainer.innerHTML = `
+
+        <div class="empty">
+
+          <h3>
+            No articles found
+          </h3>
+
+          <p>
+            Is category ya search mein koi article nahi mila.
+          </p>
+
+        </div>
+
+      `;
 
       return;
 
     }
 
 
-    try {
-
-      await addDoc(
-        collection(db, "groups"),
-        {
-
-          name: name,
-
-          category: category,
-
-          description: description,
-
-          link: link,
-
-          status: "pending",
-
-          createdAt: new Date()
-
-        }
-      );
+    filtered.forEach(article => {
 
 
-      message.textContent =
-        "✅ Group submitted successfully. It is waiting for admin approval.";
+      const card =
+        document.createElement("article");
 
 
-      form.reset();
+      card.className =
+        "article-card";
 
 
-    } catch (error) {
+      const image =
+        escapeHTML(
+          article.image ||
+          "https://via.placeholder.com/800x450?text=Pak+Point"
+        );
 
-      console.error(error);
 
-      message.textContent =
-        "❌ Submission failed. Please try again.";
+      const title =
+        escapeHTML(
+          article.title ||
+          "Untitled Article"
+        );
+
+
+      const description =
+        escapeHTML(
+          article.description ||
+          ""
+        );
+
+
+      const category =
+        escapeHTML(
+          article.category ||
+          "News"
+        );
+
+
+      const date =
+        escapeHTML(
+          formatDate(article.createdAt)
+        );
+
+
+      card.innerHTML = `
+
+        <img
+          src="${image}"
+          alt="${title}"
+          loading="lazy"
+        >
+
+        <div class="article-body">
+
+          <span class="badge">
+            ${category}
+          </span>
+
+          <h3>
+            ${title}
+          </h3>
+
+          <p>
+            ${description}
+          </p>
+
+          <a
+            class="read-more"
+            href="article.html?id=${encodeURIComponent(article.id)}"
+          >
+            Read Full Story →
+          </a>
+
+          <div class="article-meta">
+            ${date}
+          </div>
+
+        </div>
+
+      `;
+
+
+      articlesContainer.appendChild(card);
+
+    });
+
+  }
+
+
+  /* FEATURED */
+
+  function displayFeatured() {
+
+
+    if (!allArticles.length) {
+
+      featuredMain.innerHTML = `
+        <div style="
+          height:100%;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          color:white;
+        ">
+          No articles available
+        </div>
+      `;
+
+      return;
 
     }
 
-  });
+
+    const main =
+      allArticles[0];
 
 
-  loadGroups();
+    const mainImage =
+      escapeHTML(
+        main.image ||
+        "https://via.placeholder.com/1000x600?text=Pak+Point"
+      );
 
-</script>
 
-</body>
-  </html>
+    const mainTitle =
+      escapeHTML(
+        main.title ||
+        "Latest News"
+      );
+
+
+    const mainCategory =
+      escapeHTML(
+        main.category ||
+        "News"
+      );
+
+
+    featuredMain.innerHTML = `
+
+      <img
+        src="${mainImage}"
+        alt="${mainTitle}"
+      >
+
+      <div class="featured-overlay">
+
+        <span class="badge">
+          ${mainCategory}
+        </span>
+
+        <h1>
+          ${mainTitle}
+        </h1>
+
+        <a
+          href="article.html?id=${encodeURIComponent(main.id)}"
+          style="
+            color:white;
+            font-weight:bold;
+          "
+        >
+          Read Full Story →
+        </a>
+
+      </di
