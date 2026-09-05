@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | WhatsApp Group Hub</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .login {
+      background: #128c7e;
+      color: white;
+    }
+
+    .approve {
+      background: #198754;
+      color: white;
+    }
+
+    .reject {
+      background: #dc3545;
+      color: white;
+    }
+
+    .logout {
+      background: #333;
+      color: white;
+    }
+
+    .group {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    #adminPanel {
+      display: none;
+    }
+
+    #message {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="box" id="loginBox">
+    <h2>Admin Login</h2>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Admin Email"
+    >
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+    >
+
+    <button class="login" id="loginBtn">
+      Login
+    </button>
+
+    <div id="loginMessage"></div>
+  </div>
+
+
+  <div id="adminPanel">
+
+    <div class="box">
+      <h2>WhatsApp Group Hub - Admin Panel</h2>
+
+      <p>
+        Logged in as:
+        <strong id="adminEmail"></strong>
+      </p>
+
+      <button class="logout" id="logoutBtn">
+        Logout
+      </button>
+    </div>
+
+
+    <div class="box">
+      <h2>Pending Groups</h2>
+      <div id="pendingGroups">
+        Loading...
+      </div>
+    </div>
+
+
+    <div class="box">
+      <h2>Approved Groups</h2>
+      <div id="approvedGroups">
+        Loading...
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+  doc,
+  updateDoc,
+  deleteDoc
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
+  authDomain: "whatsapp-group-hub-2513a.firebaseapp.com",
+  projectId: "whatsapp-group-hub-2513a",
+  storageBucket: "whatsapp-group-hub-2513a.firebasestorage.app",
+  messagingSenderId: "997714850617",
+  appId: "1:997714850617:web:512eaa8131b882da25aee8",
+  measurementId: "G-G3D7KLK9BM"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+const ADMIN_EMAIL = "nk7741595@gmail.com";
+
+
+const loginBox = document.getElementById("loginBox");
+const adminPanel = document.getElementById("adminPanel");
+
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+const loginMessage = document.getElementById("loginMessage");
+
+const adminEmail = document.getElementById("adminEmail");
+
+const pendingGroups =
+  document.getElementById("pendingGroups");
+
+const approvedGroups =
+  document.getElementById("approvedGroups");
+
+
+loginBtn.addEventListener("click", async () => {
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+
+  if (email !== ADMIN_EMAIL) {
+
+    loginMessage.textContent =
+      "Only admin can login.";
+
+    return;
+  }
+
+
+  try {
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  } catch (error) {
+
+    loginMessage.textContent =
+      "Login failed. Check email and password.";
+
+  }
+
+});
+
+
+logoutBtn.addEventListener("click", async () => {
+
+  await signOut(auth);
+
+});
+
+
+onAuthStateChanged(auth, async (user) => {
+
+  if (user && user.email === ADMIN_EMAIL) {
+
+    loginBox.style.display = "none";
+
+    adminPanel.style.display = "block";
+
+    adminEmail.textContent = user.email;
+
+    await loadGroups();
+
+  } else {
+
+    loginBox.style.display = "block";
+
+    adminPanel.style.display = "none";
+
+  }
+
+});
+
+
+async function loadGroups() {
+
+  pendingGroups.innerHTML = "Loading...";
+  approvedGroups.innerHTML = "Loading...";
+
+
+  try {
+
+    const pendingQuery = query(
+      collection(db, "groups"),
+      where("status", "==", "pending")
+    );
+
+    const approvedQuery = query(
+      collection(db, "groups"),
+      where("status", "==", "approved")
+    );
+
+
+    const pendingSnapshot =
+      await getDocs(pendingQuery);
+
+    const approvedSnapshot =
+      await getDocs(approvedQuery);
+
+
+    pendingGroups.innerHTML = "";
+    approvedGroups.innerHTML = "";
+
+
+    if (pendingSnapshot.empty) {
+
+      pendingGroups.innerHTML =
+        "<p>No pending groups.</p>";
+
+    } else {
+
+      pendingSnapshot.forEach(groupDoc => {
+
+        showGroup(
+          pendingGroups,
+          groupDoc,
+          true
+        );
+
+      });
+
+    }
+
+
+    if (approvedSnapshot.empty) {
+
+      approvedGroups.innerHTML =
+        "<p>No approved groups.</p>";
+
+    } else {
+
+      approvedSnapshot.forEach(groupDoc => {
+
+        showGroup(
+          approvedGroups,
+          groupDoc,
+          false
+        );
+
+      });
+
+    }
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    pendingGroups.innerHTML =
+      "<p>Unable to load groups.</p>";
+
+    approvedGroups.innerHTML =
+      "<p>Unable to load groups.</p>";
+
+  }
+
+}
+
+
+function showGroup(container, groupDoc, isPending) {
+
+  const group = groupDoc.data();
+
+  const div = document.createElement("div");
+
+  div.className = "group";
+
+
+  const title =
+    document.createElement("h3");
+
+  title.textContent =
+    group.name || "WhatsApp Group";
+
+
+  const category =
+    document.createElement("p");
+
+  category.textContent =
+    "Category: " + (group.category || "");
+
+
+  const description =
+    document.createElement("p");
+
+  description.textContent =
+    group.description || "";
+
+
+  const link =
+    document.createElement("a");
+
+  link.href = group.link;
+
+  link.textContent = "Open WhatsApp Group";
+
+  link.target = "_blank";
+
+  link.rel = "noopener noreferrer";
+
+
+  div.appendChild(title);
+  div.appendChild(category);
+  div.appendChild(description);
+  div.appendChild(link);
+
+
+  if (isPending) {
+
+    const approve =
+      document.createElement("button");
+
+    approve.className = "approve";
+
+    approve.textContent = "Approve";
+
+
+    approve.addEventListener(
+      "click",
+      async () => {
+
+        await updateDoc(
+          doc(db, "groups", groupDoc.id),
+          {
+            status: "approved"
+          }
+        );
+
+        await loadGroups();
+
+      }
+    );
+
+
+    const reject =
+      document.createElement("button");
+
+    reject.className = "reject";
+
+    reject.textContent = "Reject";
+
+
+    reject.addEventListener(
+      "click",
+      async () => {
+
+        await deleteDoc(
+          doc(db, "groups", groupDoc.id)
+        );
+
+        await loadGroups();
+
+      }
+    );
+
+
+    div.appendChild(
+      document.createElement("br")
+    );
+
+    div.appendChild(approve);
+    div.appendChild(reject);
+
+  }
+
+
+  container.appendChild(div);
+
+}
+
+</script>
+
+</body>
+</html>
