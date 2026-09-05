@@ -1,842 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WhatsApp Groups Pakistan – Join Active WhatsApp Groups | WhatsApp Group Hub</title>
-
-<meta name="description" content="Find and join WhatsApp groups in Pakistan for Jobs, Education, Business, Technology, Gaming, Entertainment and more. Discover active WhatsApp groups on WhatsApp Group Hub.">
-
-<meta name="keywords" content="WhatsApp Groups Pakistan, WhatsApp groups, Pakistan WhatsApp groups, WhatsApp group links, join WhatsApp groups, Pakistani WhatsApp groups, jobs WhatsApp groups, education WhatsApp groups, business WhatsApp groups">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://nk7741595-ux.github.io/whatsapp-group-hub/">
-
-<meta name="author" content="Muhammad Naveed">
-
-<!-- Open Graph -->
-<meta property="og:title" content="WhatsApp Groups Pakistan – Join Active WhatsApp Groups">
-
-<meta property="og:description" content="Find and join WhatsApp groups in Pakistan for Jobs, Education, Business, Technology, Gaming, Entertainment and more.">
-
-<meta property="og:type" content="website">
-
-<meta property="og:url" content="https://nk7741595-ux.github.io/whatsapp-group-hub/">
-
-<meta property="og:site_name" content="WhatsApp Group Hub">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary">
-
-<meta name="twitter:title" content="WhatsApp Groups Pakistan – WhatsApp Group Hub">
-
-<meta name="twitter:description" content="Discover and join active WhatsApp groups in Pakistan for Jobs, Education, Business, Technology and more.">
-
-
-<!-- STRUCTURED DATA -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "WhatsApp Group Hub",
-  "url": "https://nk7741595-ux.github.io/whatsapp-group-hub/",
-  "description": "Find and join WhatsApp groups in Pakistan for Jobs, Education, Business, Technology, Gaming, Entertainment and more.",
-  "author": {
-    "@type": "Person",
-    "name": "Muhammad Naveed"
-  }
-}
-</script>
-
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-    background:#f4f7f6;
-    color:#222;
-}
-
-/* HEADER */
-
-header{
-    background:linear-gradient(135deg,#075e54,#128c7e,#25d366);
-    color:white;
-    padding:55px 20px;
-    text-align:center;
-}
-
-.logo{
-    width:75px;
-    height:75px;
-    margin:auto;
-    background:white;
-    color:#25d366;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:38px;
-}
-
-header h1{
-    margin-top:18px;
-    font-size:38px;
-}
-
-header p{
-    margin-top:10px;
-    font-size:18px;
-}
-
-/* NAV */
-
-nav{
-    background:white;
-    padding:16px;
-    text-align:center;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-
-nav a{
-    color:#075e54;
-    text-decoration:none;
-    font-weight:bold;
-    margin:0 15px;
-}
-
-/* HERO */
-
-.hero{
-    max-width:1100px;
-    margin:auto;
-    padding:60px 20px;
-    text-align:center;
-}
-
-.hero h2{
-    font-size:34px;
-    color:#075e54;
-}
-
-.hero p{
-    max-width:700px;
-    margin:15px auto;
-    color:#666;
-    line-height:1.7;
-}
-
-/* BUTTONS */
-
-.btn{
-    display:inline-block;
-    padding:14px 24px;
-    margin:10px 5px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.whatsapp{
-    background:#25d366;
-    color:white;
-}
-
-.whatsapp:hover{
-    background:#128c7e;
-}
-
-.submit{
-    background:#075e54;
-    color:white;
-}
-
-/* CONTAINER */
-
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
-}
-
-/* SEARCH */
-
-.search{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-    margin-bottom:30px;
-}
-
-.search input,
-.form input,
-.form select,
-.form textarea{
-    width:100%;
-    padding:14px;
-    margin:8px 0;
-    border:1px solid #ddd;
-    border-radius:8px;
-    font-size:15px;
-}
-
-.form textarea{
-    height:110px;
-}
-
-/* GROUP GRID */
-
-.title{
-    text-align:center;
-    color:#075e54;
-    margin:35px 0 20px;
-}
-
-.groups{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    padding:22px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-.card h3{
-    color:#075e54;
-    margin-bottom:10px;
-}
-
-.category{
-    display:inline-block;
-    background:#e9fff2;
-    color:#128c7e;
-    padding:6px 10px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.card p{
-    color:#666;
-    line-height:1.6;
-    margin:12px 0;
-}
-
-.join{
-    display:block;
-    background:#25d366;
-    color:white;
-    text-align:center;
-    padding:12px;
-    border-radius:7px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-/* SUBMIT FORM */
-
-.form-box{
-    background:white;
-    max-width:650px;
-    margin:50px auto;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-.form-box h2{
-    text-align:center;
-    color:#075e54;
-    margin-bottom:20px;
-}
-
-.form button{
-    width:100%;
-    padding:14px;
-    background:#25d366;
-    color:white;
-    border:0;
-    border-radius:8px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* CONTACT */
-
-.contact{
-    text-align:center;
-    background:#075e54;
-    color:white;
-    padding:45px 20px;
-    margin-top:50px;
-}
-
-.contact h2{
-    margin-bottom:10px;
-}
-
-.contact p{
-    margin:10px;
-}
-
-.contact .whatsapp{
-    margin-top:15px;
-}
-
-/* FOOTER */
-
-footer{
-    background:#043f39;
-    color:white;
-    text-align:center;
-    padding:30px 15px;
-}
-
-footer strong{
-    color:#25d366;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    header h1{
-        font-size:28px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WhatsApp Groups Pakistan – Join Active WhatsApp Groups | WhatsApp Group Hub</title>
+
+  <meta name="description" content="Find and join active WhatsApp groups in Pakistan. Discover education, jobs, business, technology and social WhatsApp groups.">
+  <meta name="keywords" content="WhatsApp Groups Pakistan, WhatsApp groups, Pakistan WhatsApp groups, join WhatsApp groups">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nk7741595-ux.github.io/whatsapp-group-hub/">
+
+  <meta property="og:title" content="WhatsApp Groups Pakistan | WhatsApp Group Hub">
+  <meta property="og:description" content="Find and join active WhatsApp groups in Pakistan.">
+  <meta property="og:url" content="https://nk7741595-ux.github.io/whatsapp-group-hub/">
+  <meta property="og:type" content="website">
+
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .hero h2{
-        font-size:27px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #222;
     }
 
-    nav a{
-        margin:5px;
-        font-size:14px;
+    header {
+      background: #128c7e;
+      color: white;
+      padding: 22px 15px;
+      text-align: center;
     }
 
-}
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
 
-</style>
+    header p {
+      margin: 8px 0 0;
+    }
 
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      background: white;
+      padding: 35px 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+    }
+
+    .hero h2 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .category {
+      display: inline-block;
+      background: #e8f5e9;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .join-btn {
+      display: inline-block;
+      background: #128c7e;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 7px;
+      margin-top: 12px;
+    }
+
+    .join-btn:hover {
+      opacity: .9;
+    }
+
+    .form-box {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 15px;
+    }
+
+    button {
+      background: #128c7e;
+      color: white;
+      border: 0;
+      padding: 12px 22px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      background: #222;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
-    <div class="logo">☘</div>
-
-    <h1>WhatsApp Groups Pakistan</h1>
-
-    <p>
-        Discover • Share • Join WhatsApp Groups
-    </p>
-
+  <h1>WhatsApp Groups Pakistan</h1>
+  <p>Find & Join Active WhatsApp Groups</p>
 </header>
-
-
-<!-- NAVIGATION -->
-
-<nav>
-
-    <a href="#home">Home</a>
-
-    <a href="#groups">Groups</a>
-
-    <a href="#submit">Submit Group</a>
-
-    <a href="#contact">Contact</a>
-
-</nav>
-
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <h2>
-        Find & Join WhatsApp Groups in Pakistan
-    </h2>
-
-    <p>
-        Discover the best WhatsApp groups in Pakistan.
-        Join groups for Jobs, Education, Business,
-        Technology, Gaming, Entertainment and more.
-        Share your own WhatsApp group and connect
-        with new communities.
-    </p>
-
-
-    <a
-        href="https://wa.me/923397381786"
-        target="_blank"
-        rel="noopener"
-        class="btn whatsapp">
-
-        💬 Contact Muhammad Naveed
-
-    </a>
-
-
-    <a
-        href="#submit"
-        class="btn submit">
-
-        ➕ Submit Your Group
-
-    </a>
-
-</section>
-
 
 <div class="container">
 
-
-<!-- SEARCH -->
-
-<section id="groups">
-
-    <div class="search">
-
-        <input
-            type="text"
-            id="search"
-            placeholder="🔍 Search WhatsApp groups..."
-            onkeyup="searchGroups()">
-
-    </div>
-
-
-    <h2 class="title">
-        Latest WhatsApp Groups Pakistan
-    </h2>
-
-
-    <div class="groups" id="groupList">
-
-
-        <!-- EDUCATION GROUP -->
-
-        <div class="card">
-
-            <h3>
-                Education WhatsApp Group Pakistan
-            </h3>
-
-            <span class="category">
-                Education
-            </span>
-
-            <p>
-                Join this WhatsApp group for
-                educational discussions, study
-                materials and learning resources.
-            </p>
-
-            <a
-                href="https://chat.whatsapp.com/"
-                target="_blank"
-                rel="noopener"
-                class="join">
-
-                Join Group
-
-            </a>
-
-        </div>
-
-
-        <!-- JOBS GROUP -->
-
-        <div class="card">
-
-            <h3>
-                Jobs & Careers WhatsApp Group
-            </h3>
-
-            <span class="category">
-                Jobs
-            </span>
-
-            <p>
-                Find job opportunities, career
-                information and employment updates
-                through WhatsApp groups.
-            </p>
-
-            <a
-                href="https://chat.whatsapp.com/"
-                target="_blank"
-                rel="noopener"
-                class="join">
-
-                Join Group
-
-            </a>
-
-        </div>
-
-
-        <!-- BUSINESS GROUP -->
-
-        <div class="card">
-
-            <h3>
-                Business WhatsApp Group Pakistan
-            </h3>
-
-            <span class="category">
-                Business
-            </span>
-
-            <p>
-                Join business communities for
-                business discussions, ideas,
-                networking and opportunities.
-            </p>
-
-            <a
-                href="https://chat.whatsapp.com/"
-                target="_blank"
-                rel="noopener"
-                class="join">
-
-                Join Group
-
-            </a>
-
-        </div>
-
-
-        <!-- TECHNOLOGY GROUP -->
-
-        <div class="card">
-
-            <h3>
-                Technology WhatsApp Groups
-            </h3>
-
-            <span class="category">
-                Technology
-            </span>
-
-            <p>
-                Discover technology discussions,
-                mobile tips, apps, software and
-                latest technology information.
-            </p>
-
-            <a
-                href="https://chat.whatsapp.com/"
-                target="_blank"
-                rel="noopener"
-                class="join">
-
-                Join Group
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- SUBMIT GROUP -->
-
-<section id="submit">
-
-    <div class="form-box">
-
-        <h2>
-            Submit Your WhatsApp Group
-        </h2>
-
-
-        <form class="form" id="groupForm">
-
-
-            <input
-                type="text"
-                id="groupName"
-                placeholder="WhatsApp Group Name"
-                required>
-
-
-            <select id="category" required>
-
-                <option value="">
-                    Select Category
-                </option>
-
-                <option>Education</option>
-
-                <option>Jobs</option>
-
-                <option>Business</option>
-
-                <option>Gaming</option>
-
-                <option>Technology</option>
-
-                <option>Entertainment</option>
-
-                <option>Islamic</option>
-
-                <option>News</option>
-
-                <option>Other</option>
-
-            </select>
-
-
-            <textarea
-                id="description"
-                placeholder="Group Description"
-                required></textarea>
-
-
-            <input
-                type="url"
-                id="groupLink"
-                placeholder="WhatsApp Group Link"
-                required>
-
-
-            <button type="submit">
-
-                Submit Group
-
-            </button>
-
-
-        </form>
-
-    </div>
-
-</section>
-
+  <section class="hero">
+    <h2>Find & Join WhatsApp Groups in Pakistan</h2>
+    <p>
+      Discover useful WhatsApp groups for education, jobs, business,
+      technology and social communities.
+    </p>
+  </section>
+
+  <h2>Latest WhatsApp Groups</h2>
+
+  <div id="groups" class="groups">
+    <p>Loading approved groups...</p>
+  </div>
+
+  <section class="form-box">
+    <h2>Submit Your WhatsApp Group</h2>
+    <p>Your group will be reviewed before appearing publicly.</p>
+
+    <form id="groupForm">
+
+      <label>Group Name</label>
+      <input
+        type="text"
+        id="groupName"
+        maxlength="100"
+        required
+        placeholder="Enter group name"
+      >
+
+      <label>Category</label>
+      <select id="category" required>
+        <option value="">Select category</option>
+        <option value="Education">Education</option>
+        <option value="Jobs & Careers">Jobs & Careers</option>
+        <option value="Business">Business</option>
+        <option value="Technology">Technology</option>
+        <option value="News">News</option>
+        <option value="Social">Social</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Description</label>
+      <textarea
+        id="description"
+        maxlength="500"
+        required
+        placeholder="Describe your WhatsApp group"
+      ></textarea>
+
+      <label>WhatsApp Group Link</label>
+      <input
+        type="url"
+        id="groupLink"
+        required
+        placeholder="https://chat.whatsapp.com/..."
+      >
+
+      <button type="submit">Submit Group</button>
+
+      <div id="message"></div>
+
+    </form>
+  </section>
 
 </div>
 
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-    <h2>
-        Contact WhatsApp Group Hub
-    </h2>
-
-    <p>
-        For group promotion, advertising or other
-        inquiries, contact Muhammad Naveed on WhatsApp.
-    </p>
-
-
-    <a
-        href="https://wa.me/923397381786"
-        target="_blank"
-        rel="noopener"
-        class="btn whatsapp">
-
-        💬 WhatsApp: +92 339 7381786
-
-    </a>
-
-</section>
-
-
-<!-- FOOTER -->
-
 <footer>
-
-    <p>
-        © 2026 WhatsApp Group Hub
-    </p>
-
-    <p>
-        All Rights Reserved
-    </p>
-
-    <p>
-        Website Owner:
-        <strong>Muhammad Naveed</strong>
-    </p>
-
+  <p>© 2026 WhatsApp Group Hub | Muhammad Naveed</p>
 </footer>
 
 
-<script>
+<script type="module">
+
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    where
+  } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-/* SAVE GROUPS */
-
-let groups =
-JSON.parse(localStorage.getItem("groups"))
-|| [];
-
-
-/* DISPLAY GROUPS */
-
-function displayGroups(){
-
-    const list =
-    document.getElementById("groupList");
+  const firebaseConfig = {
+    apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
+    authDomain: "whatsapp-group-hub-2513a.firebaseapp.com",
+    projectId: "whatsapp-group-hub-2513a",
+    storageBucket: "whatsapp-group-hub-2513a.firebasestorage.app",
+    messagingSenderId: "997714850617",
+    appId: "1:997714850617:web:512eaa8131b882da25aee8",
+    measurementId: "G-G3D7KLK9BM"
+  };
 
 
-    groups.forEach(function(group){
-
-        const card =
-        document.createElement("div");
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
 
+  const groupsContainer = document.getElementById("groups");
+  const form = document.getElementById("groupForm");
+  const message = document.getElementById("message");
+
+
+  function escapeHTML(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+
+  async function loadGroups() {
+
+    groupsContainer.innerHTML = "<p>Loading approved groups...</p>";
+
+    try {
+
+      const q = query(
+        collection(db, "groups"),
+        where("status", "==", "approved")
+      );
+
+      const snapshot = await getDocs(q);
+
+      groupsContainer.innerHTML = "";
+
+      if (snapshot.empty) {
+        groupsContainer.innerHTML =
+          "<p>No approved groups available yet.</p>";
+        return;
+      }
+
+      const groups = [];
+
+      snapshot.forEach((doc) => {
+        groups.push({
+          id: doc.id,
+          ...doc.data()
+        });
+      });
+
+      groups.sort((a, b) => {
+        const aTime = a.createdAt?.seconds || 0;
+        const bTime = b.createdAt?.seconds || 0;
+        return bTime - aTime;
+      });
+
+
+      groups.forEach(group => {
+
+        const card = document.createElement("div");
         card.className = "card";
 
-
         card.innerHTML = `
+          <span class="category">
+            ${escapeHTML(group.category || "Other")}
+          </span>
 
-            <h3>${group.name}</h3>
+          <h3>${escapeHTML(group.name || "WhatsApp Group")}</h3>
 
-            <span class="category">
-                ${group.category}
-            </span>
+          <p>${escapeHTML(group.description || "")}</p>
 
-            <p>
-                ${group.description}
-            </p>
-
-            <a
-                href="${group.link}"
-                target="_blank"
-                rel="noopener"
-                class="join">
-
-                Join Group
-
-            </a>
-
+          <a
+            class="join-btn"
+            href="${group.link}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join Group
+          </a>
         `;
 
+        groupsContainer.appendChild(card);
+      });
 
-        list.appendChild(card);
+    } catch (error) {
 
-    });
+      console.error(error);
 
-}
+      groupsContainer.innerHTML =
+        "<p>Unable to load groups right now.</p>";
+    }
+  }
 
 
-/* SUBMIT GROUP */
-
-document
-.getElementById("groupForm")
-.addEventListener("submit", function(e){
+  form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
+    message.textContent = "Submitting...";
 
-    const group = {
+    const name =
+      document.getElementById("groupName").value.trim();
 
-        name:
-        document.getElementById("groupName").value,
+    const category =
+      document.getElementById("category").value;
 
-        category:
-        document.getElementById("category").value,
+    const description =
+      document.getElementById("description").value.trim();
 
-        description:
-        document.getElementById("description").value,
-
-        link:
-        document.getElementById("groupLink").value
-
-    };
+    const link =
+      document.getElementById("groupLink").value.trim();
 
 
-    groups.unshift(group);
+    if (!link.startsWith("https://chat.whatsapp.com/")) {
+
+      message.textContent =
+        "Please enter a valid WhatsApp group link.";
+
+      return;
+    }
 
 
-    localStorage.setItem(
-        "groups",
-        JSON.stringify(groups)
-    );
+    try {
+
+      await addDoc(collection(db, "groups"), {
+
+        name: name,
+        category: category,
+        description: description,
+        link: link,
+
+        status: "pending",
+
+        createdAt: new Date()
+
+      });
 
 
-    document
-    .getElementById("groupForm")
-    .reset();
+      message.textContent =
+        "✅ Group submitted successfully. It is waiting for admin approval.";
+
+      form.reset();
+
+    } catch (error) {
+
+      console.error(error);
+
+      message.textContent =
+        "❌ Submission failed. Please try again.";
+
+    }
+
+  });
 
 
-    alert(
-        "Your group has been submitted successfully!"
-    );
-
-
-    location.reload();
-
-});
-
-
-/* SEARCH */
-
-function searchGroups(){
-
-    const search =
-    document
-    .getElementById("search")
-    .value
-    .toLowerCase();
-
-
-    const cards =
-    document.querySelectorAll(".card");
-
-
-    cards.forEach(function(card){
-
-        if(
-            card.innerText
-            .toLowerCase()
-            .includes(search)
-        ){
-
-            card.style.display = "block";
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-}
-
+  loadGroups();
 
 </script>
-
 
 </body>
 </html>
