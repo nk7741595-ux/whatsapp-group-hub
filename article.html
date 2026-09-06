@@ -640,12 +640,18 @@
 
         const date =
           formatDate(
+            article.date ||
             article.createdAt ||
-            article.updatedAt
+            article.updatedAt ||
+            ""
           );
 
         const image =
-          getImage(article.image);
+          getImage(
+            article.image ||
+            article.imageUrl ||
+            ""
+          );
 
         const video =
           getImage(article.video);
