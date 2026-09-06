@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pak Point | Articles & Stories</title>
+  <title>Pak Point | Latest Pakistan & World News</title>
 
-  <meta name="description" content="Pak Point پر دلچسپ Articles، Stories، معلوماتی اور سبق آموز تحریریں پڑھیں۔">
+  <meta name="description" content="Pak Point brings you the latest Pakistan and world news, breaking news, technology, sports, business, education, motivation and knowledge.">
 
-  <meta name="keywords" content="Pak Point, Articles, Stories, Urdu Stories, Urdu Articles, معلوماتی مضامین, سبق آموز کہانیاں">
+  <meta name="keywords" content="Pak Point, Pakistan News, Latest News, Breaking News, Pakistan, World News, Stories, Motivation, Knowledge">
 
   <meta name="author" content="Pak Point">
 
@@ -20,182 +20,317 @@
     }
 
     body {
-      font-family: Arial, "Noto Nastaliq Urdu", sans-serif;
-      background: #f5f6f8;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
       color: #222;
-      line-height: 1.8;
+      line-height: 1.6;
     }
 
     header {
-      background: #111827;
+      background: #075e54;
       color: white;
       padding: 15px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    .header-box {
-      max-width: 1100px;
+    .header-container {
+      max-width: 1200px;
       margin: auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 15px;
     }
 
     .logo {
-      font-size: 27px;
+      font-size: 26px;
       font-weight: bold;
-      color: #fff;
-      text-decoration: none;
+      white-space: nowrap;
     }
 
     nav {
       display: flex;
-      gap: 18px;
+      gap: 10px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 14px;
+      padding: 6px 8px;
+      border-radius: 5px;
     }
 
     nav a:hover {
-      color: #38bdf8;
+      background: rgba(255,255,255,0.15);
     }
 
     .hero {
-      max-width: 1100px;
-      margin: 25px auto;
-      padding: 45px 25px;
-      background: linear-gradient(135deg, #1e3a8a, #111827);
+      background: linear-gradient(135deg, #075e54, #128c7e);
       color: white;
-      border-radius: 15px;
       text-align: center;
+      padding: 55px 20px;
     }
 
     .hero h1 {
-      font-size: 35px;
+      font-size: 38px;
       margin-bottom: 10px;
     }
 
     .hero p {
-      font-size: 17px;
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
     }
 
-    .container {
-      max-width: 1100px;
+    .search-box {
+      max-width: 700px;
+      margin: 25px auto 0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 13px;
+      border: none;
+      border-radius: 7px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-box button {
+      padding: 13px 20px;
+      border: none;
+      border-radius: 7px;
+      background: #222;
+      color: white;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 1200px;
       margin: auto;
-      padding: 10px 15px 40px;
+      padding: 30px 15px;
+    }
+
+    section {
+      margin-bottom: 45px;
     }
 
     .section-title {
-      font-size: 25px;
-      margin: 25px 0 15px;
-      border-right: 5px solid #2563eb;
-      padding-right: 10px;
+      font-size: 27px;
+      margin-bottom: 18px;
+      color: #075e54;
+      border-left: 5px solid #075e54;
+      padding-left: 10px;
     }
 
-    .cards {
+    .posts {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
 
     .card {
       background: white;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,.08);
-      transition: .2s;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      cursor: pointer;
     }
 
     .card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.14);
     }
 
-    .card img {
+    .card-image {
       width: 100%;
       height: 190px;
       object-fit: cover;
+      background: #ddd;
     }
 
     .card-content {
-      padding: 15px;
-    }
-
-    .category {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 2px 9px;
-      border-radius: 20px;
-      font-size: 12px;
-      margin-bottom: 7px;
+      padding: 17px;
     }
 
     .card h3 {
       font-size: 20px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      color: #222;
     }
 
-    .card p {
-      color: #666;
-      font-size: 14px;
-    }
-
-    .read-btn {
+    .category {
       display: inline-block;
-      margin-top: 10px;
-      background: #111827;
+      background: #075e54;
       color: white;
-      padding: 7px 14px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
+      padding: 4px 9px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-bottom: 8px;
     }
 
-    .read-btn:hover {
-      background: #2563eb;
+    .date {
+      color: #777;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .empty {
+      background: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 8px;
+      color: #777;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .contact-buttons a {
+      text-decoration: none;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .whatsapp {
+      background: #25d366;
+    }
+
+    .email {
+      background: #444;
+    }
+
+    .facebook {
+      background: #1877f2;
     }
 
     footer {
-      background: #111827;
+      background: #075e54;
       color: white;
       text-align: center;
       padding: 25px 15px;
       margin-top: 30px;
     }
 
-    @media (max-width: 800px) {
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
+    .admin-link {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+      opacity: 0.9;
     }
 
-    @media (max-width: 550px) {
-      .header-box {
+    /* Modal */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.75);
+      overflow-y: auto;
+      padding: 30px 15px;
+    }
+
+    .modal-content {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      position: relative;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 10px;
+      color: #075e54;
+    }
+
+    .modal-text {
+      white-space: pre-wrap;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 8px;
+      font-size: 32px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 18px;
+      color: #075e54;
+    }
+
+    @media (max-width: 768px) {
+
+      .header-container {
         flex-direction: column;
       }
 
       nav {
-        justify-content: center;
-        gap: 12px;
+        width: 100%;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+      .hero h1 {
+        font-size: 30px;
       }
 
-      .hero {
-        margin: 15px;
+      .hero p {
+        font-size: 16px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box button {
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 24px;
       }
     }
   </style>
@@ -204,266 +339,812 @@
 <body>
 
 <header>
-  <div class="header-box">
+  <div class="header-container">
 
-    <a href="index.html" class="logo">Pak Point</a>
+    <div class="logo">
+      Pak Point
+    </div>
 
     <nav>
-      <a href="index.html">Home</a>
+      <a href="#home">Home</a>
       <a href="#articles">Articles</a>
       <a href="#stories">Stories</a>
       <a href="#motivation">Motivation</a>
       <a href="#knowledge">Knowledge</a>
       <a href="#contact">Contact</a>
+      <a href="admin.html">Admin</a>
     </nav>
 
   </div>
 </header>
 
 
-<section class="hero">
+<section class="hero" id="home">
 
   <h1>Pak Point</h1>
 
   <p>
-    دلچسپ Articles، سبق آموز Stories اور معلوماتی تحریروں کی دنیا
+    Latest Pakistan & World News, Articles, Stories, Motivation and Knowledge
   </p>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search articles, stories..."
+    >
+
+    <button onclick="searchPosts()">
+      Search
+    </button>
+  </div>
 
 </section>
 
 
-<main class="container">
+<main>
 
-  <h2 class="section-title" id="articles">
-    📰 Latest Articles
-  </h2>
+  <!-- Articles -->
 
-  <div class="cards">
+  <section id="articles">
 
-    <article class="card">
+    <h2 class="section-title">
+      Latest Articles
+    </h2>
 
-      <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=80"
-           alt="Article">
+    <div id="articlesContainer" class="posts">
 
-      <div class="card-content">
+      <div class="loading">
+        Loading articles...
+      </div>
 
-        <span class="category">Article</span>
+    </div>
 
-        <h3>
-          کامیابی حاصل کرنے کے لیے کیا کرنا چاہیے؟
-        </h3>
+  </section>
 
-        <p>
-          زندگی میں کامیابی صرف خواہش کرنے سے نہیں ملتی بلکہ مسلسل محنت اور صحیح فیصلوں کی ضرورت ہوتی ہے۔
-        </p>
 
-        <a href="#" class="read-btn">
-          مکمل پڑھیں →
+  <!-- Stories -->
+
+  <section id="stories">
+
+    <h2 class="section-title">
+      Latest Stories
+    </h2>
+
+    <div id="storiesContainer" class="posts">
+
+      <div class="loading">
+        Loading stories...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Motivation -->
+
+  <section id="motivation">
+
+    <h2 class="section-title">
+      Motivation
+    </h2>
+
+    <div id="motivationContainer" class="posts">
+
+      <div class="loading">
+        Loading motivation posts...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Knowledge -->
+
+  <section id="knowledge">
+
+    <h2 class="section-title">
+      Knowledge
+    </h2>
+
+    <div id="knowledgeContainer" class="posts">
+
+      <div class="loading">
+        Loading knowledge posts...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+
+  <section id="contact">
+
+    <h2 class="section-title">
+      Contact Us
+    </h2>
+
+    <div class="contact-box">
+
+      <h3>
+        Pak Point سے رابطہ کریں
+      </h3>
+
+      <p>
+        News, Articles یا کسی بھی معلومات کے لیے ہم سے رابطہ کریں۔
+      </p>
+
+      <div class="contact-buttons">
+
+        <a
+          class="whatsapp"
+          href="https://wa.me/923397381786"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+        <a
+          class="email"
+          href="mailto:nk7741595@gmail.com"
+        >
+          Email
+        </a>
+
+        <a
+          class="facebook"
+          href="https://www.facebook.com/share/1TgtXJRkXd/"
+          target="_blank"
+        >
+          Facebook
         </a>
 
       </div>
 
-    </article>
+    </div>
 
-
-    <article class="card">
-
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
-           alt="Knowledge">
-
-      <div class="card-content">
-
-        <span class="category">Knowledge</span>
-
-        <h3>
-          روزمرہ زندگی کی دلچسپ معلومات
-        </h3>
-
-        <p>
-          ایسی معلومات جو آپ کی عام زندگی میں بھی کام آ سکتی ہیں اور آپ کے علم میں اضافہ کرتی ہیں۔
-        </p>
-
-        <a href="#" class="read-btn">
-          مکمل پڑھیں →
-        </a>
-
-      </div>
-
-    </article>
-
-
-    <article class="card">
-
-      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
-           alt="Story">
-
-      <div class="card-content">
-
-        <span class="category">Story</span>
-
-        <h3>
-          ایک چھوٹی سی کہانی، بڑا سبق
-        </h3>
-
-        <p>
-          ایک سبق آموز کہانی جو ہمیں زندگی میں صبر، محنت اور اچھے کردار کی اہمیت بتاتی ہے۔
-        </p>
-
-        <a href="#" class="read-btn">
-          مکمل کہانی پڑھیں →
-        </a>
-
-      </div>
-
-    </article>
-
-  </div>
-
-
-  <h2 class="section-title" id="stories">
-    📖 Latest Stories
-  </h2>
-
-  <div class="cards">
-
-    <article class="card">
-
-      <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=900&q=80"
-           alt="Urdu Story">
-
-      <div class="card-content">
-
-        <span class="category">Story</span>
-
-        <h3>
-          ایک غریب لڑکے کی حیران کن کہانی
-        </h3>
-
-        <p>
-          مشکلات کے باوجود ہمت نہ ہارنے والے ایک نوجوان کی دلچسپ اور سبق آموز داستان۔
-        </p>
-
-        <a href="#" class="read-btn">
-          کہانی پڑھیں →
-        </a>
-
-      </div>
-
-    </article>
-
-
-    <article class="card">
-
-      <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=900&q=80"
-           alt="Motivational Story">
-
-      <div class="card-content">
-
-        <span class="category">Motivation</span>
-
-        <h3>
-          ہار کے بعد جیت کیسے حاصل کی؟
-        </h3>
-
-        <p>
-          ناکامی کو کامیابی کی پہلی سیڑھی بنانے والی ایک متاثر کن کہانی۔
-        </p>
-
-        <a href="#" class="read-btn">
-          کہانی پڑھیں →
-        </a>
-
-      </div>
-
-    </article>
-
-
-    <article class="card">
-
-      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"
-           alt="Life Story">
-
-      <div class="card-content">
-
-        <span class="category">Life</span>
-
-        <h3>
-          زندگی بدل دینے والا ایک فیصلہ
-        </h3>
-
-        <p>
-          بعض اوقات زندگی کا ایک فیصلہ انسان کی پوری زندگی بدل دیتا ہے۔
-        </p>
-
-        <a href="#" class="read-btn">
-          کہانی پڑھیں →
-        </a>
-
-      </div>
-
-    </article>
-
-  </div>
-
-
-  <h2 class="section-title" id="motivation">
-    💡 Motivation
-  </h2>
-
-  <div class="cards">
-
-    <article class="card">
-      <div class="card-content">
-        <span class="category">Motivation</span>
-        <h3>خود پر یقین کیسے پیدا کریں؟</h3>
-        <p>
-          کامیابی کی طرف پہلا قدم اپنے آپ پر اعتماد کرنا ہے۔
-        </p>
-        <a href="#" class="read-btn">پڑھیں →</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="card-content">
-        <span class="category">Motivation</span>
-        <h3>مشکل وقت میں ہمت کیسے رکھیں؟</h3>
-        <p>
-          زندگی کے مشکل حالات کا مقابلہ کرنے کے لیے مثبت سوچ ضروری ہے۔
-        </p>
-        <a href="#" class="read-btn">پڑھیں →</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="card-content">
-        <span class="category">Motivation</span>
-        <h3>کامیاب لوگوں کی چند عادات</h3>
-        <p>
-          کامیاب لوگ اپنی روزمرہ زندگی میں کچھ خاص عادات اپناتے ہیں۔
-        </p>
-        <a href="#" class="read-btn">پڑھیں →</a>
-      </div>
-    </article>
-
-  </div>
+  </section>
 
 </main>
 
 
-<footer id="contact">
-
-  <h3>Pak Point</h3>
+<footer>
 
   <p>
-    Articles • Stories • Motivation • Knowledge
+    © 2026 Pak Point. All Rights Reserved.
   </p>
 
-  <p>
-    © 2026 Pak Point — All Rights Reserved
-  </p>
+  <a
+    class="admin-link"
+    href="admin.html"
+  >
+    Admin Panel
+  </a>
 
 </footer>
 
 
+<!-- Article Modal -->
+
+<div id="articleModal" class="modal">
+
+  <div class="modal-content">
+
+    <span
+      class="close"
+      onclick="closeModal()"
+    >
+      &times;
+    </span>
+
+    <img
+      id="modalImage"
+      src=""
+      alt="Article Image"
+      style="display:none;"
+    >
+
+    <span
+      id="modalCategory"
+      class="category"
+    ></span>
+
+    <h2 id="modalTitle"></h2>
+
+    <div
+      id="modalText"
+      class="modal-text"
+    ></div>
+
+    <p
+      id="modalDate"
+      class="date"
+    ></p>
+
+  </div>
+
+</div>
+
+
+<!-- Firebase -->
+
+<script type="module">
+
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+  import {
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    where
+  }
+  from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
+
+    authDomain:
+      "whatsapp-group-hub-2513a.firebaseapp.com",
+
+    projectId:
+      "whatsapp-group-hub-2513a",
+
+    storageBucket:
+      "whatsapp-group-hub-2513a.firebasestorage.app",
+
+    messagingSenderId:
+      "997714850617",
+
+    appId:
+      "1:997714850617:web:512eaa8131b882da25aee8",
+
+    measurementId:
+      "G-G3D7KLK9BM"
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+
+  const db = getFirestore(app);
+
+
+  let allPosts = [];
+
+
+  async function loadPosts() {
+
+    try {
+
+      const articlesRef =
+        collection(db, "articles");
+
+      const q =
+        query(
+          articlesRef,
+          where("status", "==", "published")
+        );
+
+      const snapshot =
+        await getDocs(q);
+
+
+      allPosts = [];
+
+
+      snapshot.forEach((doc) => {
+
+        const data = doc.data();
+
+        allPosts.push({
+
+          id: doc.id,
+
+          ...data
+
+        });
+
+      });
+
+
+      // Newest first
+
+      allPosts.sort((a, b) => {
+
+        const dateA =
+          new Date(a.date || 0);
+
+        const dateB =
+          new Date(b.date || 0);
+
+        return dateB - dateA;
+
+      });
+
+
+      renderAll();
+
+    }
+
+    catch (error) {
+
+      console.error(
+        "Firebase Error:",
+        error
+      );
+
+
+      showError(
+        "articlesContainer"
+      );
+
+      showError(
+        "storiesContainer"
+      );
+
+      showError(
+        "motivationContainer"
+      );
+
+      showError(
+        "knowledgeContainer"
+      );
+
+    }
+
+  }
+
+
+  function showError(containerId) {
+
+    const container =
+      document.getElementById(containerId);
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        Posts load nahi ho rahe.
+        Firebase connection ya Firestore rules check karein.
+
+      </div>
+
+    `;
+
+  }
+
+
+  function renderAll(posts = allPosts) {
+
+    const articles =
+      posts.filter(
+        post =>
+          post.type !== "Story"
+      );
+
+
+    const stories =
+      posts.filter(
+        post =>
+          post.type === "Story"
+      );
+
+
+    const motivation =
+      posts.filter(
+        post =>
+          String(post.category || "")
+            .toLowerCase()
+            .includes("motivation")
+      );
+
+
+    const knowledge =
+      posts.filter(
+        post =>
+          String(post.category || "")
+            .toLowerCase()
+            .includes("knowledge")
+      );
+
+
+    renderPosts(
+      "articlesContainer",
+      articles
+    );
+
+
+    renderPosts(
+      "storiesContainer",
+      stories
+    );
+
+
+    renderPosts(
+      "motivationContainer",
+      motivation
+    );
+
+
+    renderPosts(
+      "knowledgeContainer",
+      knowledge
+    );
+
+  }
+
+
+  function renderPosts(
+    containerId,
+    posts
+  ) {
+
+    const container =
+      document.getElementById(
+        containerId
+      );
+
+
+    if (!posts.length) {
+
+      container.innerHTML = `
+
+        <div class="empty">
+
+          No posts available yet.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    posts.forEach(post => {
+
+      const card =
+        document.createElement("div");
+
+      card.className = "card";
+
+
+      const image =
+        post.image ||
+        post.imageUrl ||
+        "";
+
+
+      const title =
+        post.title ||
+        "Untitled";
+
+
+      const category =
+        post.category ||
+        post.type ||
+        "Article";
+
+
+      const date =
+        post.date ||
+        "";
+
+
+      card.innerHTML = `
+
+        ${
+          image
+          ?
+          `<img
+            class="card-image"
+            src="${escapeHtml(image)}"
+            alt="${escapeHtml(title)}"
+          >`
+          :
+          `<div
+            class="card-image"
+          ></div>`
+        }
+
+
+        <div class="card-content">
+
+          <span class="category">
+            ${escapeHtml(category)}
+          </span>
+
+          <h3>
+            ${escapeHtml(title)}
+          </h3>
+
+          <p class="date">
+            ${escapeHtml(String(date))}
+          </p>
+
+        </div>
+
+      `;
+
+
+      card.addEventListener(
+        "click",
+        () => openModal(post)
+      );
+
+
+      container.appendChild(card);
+
+    });
+
+  }
+
+
+  function openModal(post) {
+
+    const modal =
+      document.getElementById(
+        "articleModal"
+      );
+
+
+    const image =
+      document.getElementById(
+        "modalImage"
+      );
+
+
+    const title =
+      document.getElementById(
+        "modalTitle"
+      );
+
+
+    const category =
+      document.getElementById(
+        "modalCategory"
+      );
+
+
+    const text =
+      document.getElementById(
+        "modalText"
+      );
+
+
+    const date =
+      document.getElementById(
+        "modalDate"
+      );
+
+
+    title.textContent =
+      post.title || "Untitled";
+
+
+    category.textContent =
+      post.category ||
+      post.type ||
+      "Article";
+
+
+    text.textContent =
+      post.content ||
+      post.description ||
+      post.text ||
+      "No content available.";
+
+
+    date.textContent =
+      post.date ||
+      "";
+
+
+    const imageUrl =
+      post.image ||
+      post.imageUrl ||
+      "";
+
+
+    if (imageUrl) {
+
+      image.src = imageUrl;
+
+      image.style.display =
+        "block";
+
+    }
+
+    else {
+
+      image.style.display =
+        "none";
+
+    }
+
+
+    modal.style.display =
+      "block";
+
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+
+
+  window.closeModal =
+    function () {
+
+      document.getElementById(
+        "articleModal"
+      ).style.display =
+        "none";
+
+
+      document.body.style.overflow =
+        "auto";
+
+    };
+
+
+  window.searchPosts =
+    function () {
+
+      const input =
+        document.getElementById(
+          "searchInput"
+        );
+
+
+      const search =
+        input.value
+          .trim()
+          .toLowerCase();
+
+
+      if (!search) {
+
+        renderAll(
+          allPosts
+        );
+
+        return;
+
+      }
+
+
+      const filtered =
+        allPosts.filter(post => {
+
+          const title =
+            String(
+              post.title || ""
+            ).toLowerCase();
+
+
+          const content =
+            String(
+              post.content ||
+              post.description ||
+              post.text ||
+              ""
+            ).toLowerCase();
+
+
+          const category =
+            String(
+              post.category ||
+              ""
+            ).toLowerCase();
+
+
+          return (
+
+            title.includes(search) ||
+
+            content.includes(search) ||
+
+            category.includes(search)
+
+          );
+
+        });
+
+
+      renderAll(
+        filtered
+      );
+
+  };
+
+
+  document
+    .getElementById("searchInput")
+    .addEventListener(
+      "keypress",
+      function(event) {
+
+        if (
+          event.key === "Enter"
+        ) {
+
+          searchPosts();
+
+        }
+
+      }
+    );
+
+
+  window.addEventListener(
+    "click",
+    function(event) {
+
+      const modal =
+        document.getElementById(
+          "articleModal"
+        );
+
+
+      if (
+        event.target === modal
+      ) {
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+  function escapeHtml(value) {
+
+    return String(value)
+
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+
+      .replace(
+        /</g,
+        "&lt;"
+      )
+
+      .replace(
+        />/g,
+        "&gt;"
+      )
+
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+
+  }
+
+
+  loadPosts();
+
+</script>
+
 </body>
-  </html>
+      </html>
