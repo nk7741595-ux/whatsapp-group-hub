@@ -139,6 +139,27 @@
       margin-left: 8px;
     }
 
+    .open-btn {
+      background: #7c3aed;
+      color: white;
+    }
+
+    .copy-btn {
+      background: #0891b2;
+      color: white;
+    }
+
+    .article-url {
+      margin-top: 12px;
+      padding: 10px;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 13px;
+      word-break: break-all;
+      color: #374151;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -238,55 +259,33 @@
 
 <div class="container">
 
-  <!-- LOGIN -->
   <div id="loginCard" class="card">
     <h2>Admin Login</h2>
 
     <label>Email Address</label>
-    <input
-      type="email"
-      id="email"
-      placeholder="Enter admin email"
-    >
+    <input type="email" id="email" placeholder="Enter admin email">
 
     <label>Password</label>
-    <input
-      type="password"
-      id="password"
-      placeholder="Enter password"
-    >
+    <input type="password" id="password" placeholder="Enter password">
 
-    <button class="login-btn" id="loginButton">
-      Login
-    </button>
+    <button class="login-btn" id="loginButton">Login</button>
 
     <div id="loginStatus" class="status"></div>
   </div>
 
-
-  <!-- ADMIN AREA -->
   <div id="adminArea" class="hidden">
 
     <div class="card topbar">
-      <button class="logout-btn" id="logoutButton">
-        Logout
-      </button>
-
+      <button class="logout-btn" id="logoutButton">Logout</button>
       <h2>Admin Dashboard</h2>
     </div>
 
-
-    <!-- ARTICLE FORM -->
     <div class="card">
 
       <h2 id="formTitle">Publish New Article</h2>
 
       <label>Article Title</label>
-      <input
-        type="text"
-        id="title"
-        placeholder="Enter article title"
-      >
+      <input type="text" id="title" placeholder="Enter article title">
 
       <label>Category</label>
       <select id="category">
@@ -303,57 +302,31 @@
       </select>
 
       <label>Short Description</label>
-      <textarea
-        id="description"
-        placeholder="Write a short description..."
-      ></textarea>
+      <textarea id="description" placeholder="Write a short description..."></textarea>
 
       <label>Full Article</label>
-      <textarea
-        id="content"
-        placeholder="Write the complete article here..."
-      ></textarea>
+      <textarea id="content" placeholder="Write the complete article here..."></textarea>
 
       <label>Article Image</label>
-      <input
-        type="file"
-        id="imageFile"
-        accept="image/*"
-      >
+      <input type="file" id="imageFile" accept="image/*">
 
       <small style="display:block;margin-top:7px;color:#6b7280;">
         Recommended: JPG/PNG image up to 5 MB. The image is automatically compressed before saving.
       </small>
 
       <label>Article Video (Optional)</label>
-      <input
-        type="file"
-        id="videoFile"
-        accept="video/*"
-      >
+      <input type="file" id="videoFile" accept="video/*">
 
       <div id="uploadProgress" class="progress"></div>
 
-      <button
-        class="publish-btn"
-        id="publishButton"
-      >
-        Publish Article
-      </button>
+      <button class="publish-btn" id="publishButton">Publish Article</button>
 
-      <button
-        class="cancel-btn hidden"
-        id="cancelEditButton"
-      >
-        Cancel Edit
-      </button>
+      <button class="cancel-btn hidden" id="cancelEditButton">Cancel Edit</button>
 
       <div id="articleStatus" class="status"></div>
 
     </div>
 
-
-    <!-- ARTICLES LIST -->
     <div class="card">
 
       <h2>Published Articles</h2>
@@ -367,7 +340,6 @@
   </div>
 
 </div>
-
 
 <script type="module">
 
@@ -399,9 +371,6 @@
     getDownloadURL
   } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
 
-
-  /* FIREBASE CONFIG */
-
   const firebaseConfig = {
     apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
     authDomain: "whatsapp-group-hub-2513a.firebaseapp.com",
@@ -412,34 +381,22 @@
     measurementId: "G-G3D7KLK9BM"
   };
 
-
   const app = initializeApp(firebaseConfig);
-
   const auth = getAuth(app);
   const db = getFirestore(app);
   const storage = getStorage(app);
 
   const ADMIN_EMAIL = "nk7741595@gmail.com";
-
   let editingArticleId = null;
-
-
-  /* ELEMENTS */
 
   const loginCard = document.getElementById("loginCard");
   const adminArea = document.getElementById("adminArea");
-
   const loginButton = document.getElementById("loginButton");
   const logoutButton = document.getElementById("logoutButton");
-
   const loginStatus = document.getElementById("loginStatus");
   const articleStatus = document.getElementById("articleStatus");
-
   const publishButton = document.getElementById("publishButton");
   const cancelEditButton = document.getElementById("cancelEditButton");
-
-
-  /* LOGIN */
 
   loginButton.addEventListener("click", async () => {
 
@@ -492,17 +449,9 @@
 
   });
 
-
-  /* LOGOUT */
-
   logoutButton.addEventListener("click", async () => {
-
     await signOut(auth);
-
   });
-
-
-  /* AUTH STATE */
 
   onAuthStateChanged(auth, (user) => {
 
@@ -526,9 +475,6 @@
     }
 
   });
-
-
-  /* UPLOAD FILE */
 
   function uploadFile(file, folder) {
 
@@ -565,9 +511,7 @@
         },
 
         (error) => {
-
           reject(error);
-
         },
 
         async () => {
@@ -588,9 +532,6 @@
     });
 
   }
-
-
-  /* PREPARE ARTICLE IMAGE */
 
   function prepareArticleImage(file) {
 
@@ -645,8 +586,6 @@
 
           ctx.drawImage(img, 0, 0, width, height);
 
-          // JPEG keeps the Firestore document comfortably below 1 MiB
-          // for normal article images.
           const dataUrl = canvas.toDataURL("image/jpeg", 0.78);
 
           if (dataUrl.length > 900000) {
@@ -675,9 +614,6 @@
 
   }
 
-
-  /* PUBLISH / UPDATE */
-
   publishButton.addEventListener(
     "click",
     async () => {
@@ -700,7 +636,6 @@
       const videoFile =
         document.getElementById("videoFile").files[0];
 
-
       if (!title || !description || !content) {
 
         showArticleStatus(
@@ -711,7 +646,6 @@
         return;
       }
 
-
       publishButton.disabled = true;
       publishButton.textContent = "Publishing...";
 
@@ -719,20 +653,10 @@
         "uploadProgress"
       ).textContent = "";
 
-
       try {
 
         let imageData = null;
         let videoData = null;
-
-
-        /* IMAGE
-           Firebase Storage is not required for article images.
-           We compress the selected image in the browser and save it
-           as a small Data URL in Firestore. This avoids
-           storage/retry-limit-exceeded errors and the Data URL works
-           directly inside <img src="..."> on the article page.
-        */
 
         if (imageFile) {
 
@@ -748,9 +672,6 @@
 
         }
 
-
-        /* VIDEO */
-
         if (videoFile) {
 
           videoData =
@@ -761,23 +682,16 @@
 
         }
 
-
         const articleData = {
 
           title: title,
-
           category: category,
-
           description: description,
-
           content: content,
-
           status: "published",
-
           updatedAt: serverTimestamp()
 
         };
-
 
         if (imageData) {
 
@@ -790,7 +704,6 @@
 
         }
 
-
         if (videoData) {
 
           articleData.video =
@@ -800,9 +713,6 @@
             videoData.path;
 
         }
-
-
-        /* NEW ARTICLE */
 
         if (!editingArticleId) {
 
@@ -820,8 +730,6 @@
           );
 
         }
-
-        /* UPDATE ARTICLE */
 
         else {
 
@@ -841,7 +749,6 @@
 
         }
 
-
         clearForm();
 
         await loadArticles();
@@ -857,7 +764,6 @@
 
       }
 
-
       publishButton.disabled = false;
 
       publishButton.textContent =
@@ -868,9 +774,6 @@
     }
   );
 
-
-  /* LOAD ARTICLES */
-
   async function loadArticles() {
 
     const list =
@@ -878,14 +781,12 @@
 
     list.innerHTML = "Loading articles...";
 
-
     try {
 
       const snapshot =
         await getDocs(
           collection(db, "articles")
         );
-
 
       if (snapshot.empty) {
 
@@ -896,9 +797,7 @@
 
       }
 
-
       list.innerHTML = "";
-
 
       snapshot.forEach((articleDoc) => {
 
@@ -908,7 +807,6 @@
           document.createElement("div");
 
         item.className = "article-item";
-
 
         let html = `
 
@@ -924,7 +822,6 @@
 
         `;
 
-
         if (data.image) {
 
           html += `
@@ -937,10 +834,36 @@
 
         }
 
+        // Individual article URL
+        const articleUrl =
+          new URL(
+            "article.html?id=" +
+            encodeURIComponent(articleDoc.id),
+            window.location.href
+          ).href;
 
         html += `
 
+          <div class="article-url">
+            <strong>Article URL:</strong><br>
+            <span>${escapeHtml(articleUrl)}</span>
+          </div>
+
           <div class="button-row">
+
+            <button
+              class="open-btn"
+              data-open="${escapeHtml(articleUrl)}"
+            >
+              Open Article
+            </button>
+
+            <button
+              class="copy-btn"
+              data-copy="${escapeHtml(articleUrl)}"
+            >
+              Copy URL
+            </button>
 
             <button
               class="update-btn"
@@ -960,11 +883,37 @@
 
         `;
 
-
         item.innerHTML = html;
-
         list.appendChild(item);
 
+        item
+          .querySelector("[data-open]")
+          .addEventListener(
+            "click",
+            () => {
+              window.location.href = articleUrl;
+            }
+          );
+
+        item
+          .querySelector("[data-copy]")
+          .addEventListener(
+            "click",
+            async () => {
+              try {
+                await navigator.clipboard.writeText(articleUrl);
+                showArticleStatus(
+                  "Article URL copied successfully!",
+                  "success"
+                );
+              } catch (error) {
+                window.prompt(
+                  "Copy this article URL:",
+                  articleUrl
+                );
+              }
+            }
+          );
 
         item
           .querySelector("[data-edit]")
@@ -972,7 +921,6 @@
             "click",
             () => editArticle(articleDoc.id)
           );
-
 
         item
           .querySelector("[data-delete]")
@@ -996,9 +944,6 @@
 
   }
 
-
-  /* EDIT ARTICLE */
-
   async function editArticle(id) {
 
     try {
@@ -1018,7 +963,6 @@
 
       });
 
-
       if (!data) {
 
         alert("Article not found.");
@@ -1027,9 +971,7 @@
 
       }
 
-
       editingArticleId = id;
-
 
       document.getElementById("title").value =
         data.title || "";
@@ -1043,21 +985,17 @@
       document.getElementById("content").value =
         data.content || "";
 
-
       document.getElementById(
         "formTitle"
       ).textContent =
         "Edit Article";
 
-
       publishButton.textContent =
         "Update Article";
-
 
       cancelEditButton.classList.remove(
         "hidden"
       );
-
 
       window.scrollTo({
         top: 0,
@@ -1072,9 +1010,6 @@
 
   }
 
-
-  /* DELETE */
-
   async function deleteArticle(id) {
 
     const confirmDelete =
@@ -1084,19 +1019,16 @@
 
     if (!confirmDelete) return;
 
-
     try {
 
       await deleteDoc(
         doc(db, "articles", id)
       );
 
-
       showArticleStatus(
         "Article deleted successfully.",
         "success"
       );
-
 
       await loadArticles();
 
@@ -1111,20 +1043,12 @@
 
   }
 
-
-  /* CANCEL EDIT */
-
   cancelEditButton.addEventListener(
     "click",
     () => {
-
       clearForm();
-
     }
   );
-
-
-  /* CLEAR FORM */
 
   function clearForm() {
 
@@ -1153,9 +1077,6 @@
 
   }
 
-
-  /* STATUS */
-
   function showArticleStatus(message, type) {
 
     articleStatus.style.display = "block";
@@ -1167,9 +1088,6 @@
       message;
 
   }
-
-
-  /* SECURITY FOR DISPLAY */
 
   function escapeHtml(text) {
 
