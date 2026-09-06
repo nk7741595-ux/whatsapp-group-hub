@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Pak Point - Admin Panel</title>
 
   <style>
@@ -236,8 +237,13 @@
       margin-bottom: 5px;
     }
 
-    @media (max-width: 600px) {
+    .small-note {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 8px;
+    }
 
+    @media (max-width: 600px) {
       .admin-profile {
         width: 70px;
         height: 70px;
@@ -275,24 +281,19 @@
 
 <div class="container">
 
-  <!-- OTP LOGIN -->
+  <!-- =========================
+       OTP LOGIN
+  ========================== -->
 
   <div id="loginCard" class="card">
 
-    <h2>
-      Admin OTP Login
-    </h2>
+    <h2>Admin OTP Login</h2>
 
     <div class="otp-info">
-
       صرف رجسٹرڈ Admin نمبر پر OTP بھیجا جائے گا۔
-
     </div>
 
-
-    <label>
-      Mobile Number
-    </label>
+    <label>Mobile Number</label>
 
     <input
       type="tel"
@@ -301,29 +302,25 @@
       readonly
     >
 
-
     <div
       id="recaptcha-container"
       class="recaptcha-box"
     ></div>
 
-
     <button
       class="otp-btn"
       id="sendOtpButton"
+      type="button"
     >
       Send OTP
     </button>
-
 
     <div
       id="otpSection"
       class="hidden"
     >
 
-      <label>
-        Enter OTP
-      </label>
+      <label>Enter OTP</label>
 
       <input
         type="text"
@@ -336,12 +333,20 @@
       <button
         class="login-btn"
         id="verifyOtpButton"
+        type="button"
       >
         Verify OTP & Open Admin
       </button>
 
-    </div>
+      <button
+        class="otp-btn"
+        id="resendOtpButton"
+        type="button"
+      >
+        Resend OTP
+      </button>
 
+    </div>
 
     <div
       id="loginStatus"
@@ -351,30 +356,35 @@
   </div>
 
 
-  <!-- ADMIN AREA -->
+  <!-- =========================
+       ADMIN AREA
+  ========================== -->
 
   <div
     id="adminArea"
     class="hidden"
   >
 
+    <!-- TOP BAR -->
+
     <div class="card topbar">
 
       <button
         class="logout-btn"
         id="logoutButton"
+        type="button"
       >
         Logout
       </button>
 
-      <h2>
-        Admin Dashboard
-      </h2>
+      <h2>Admin Dashboard</h2>
 
     </div>
 
 
-    <!-- ARTICLE FORM -->
+    <!-- =========================
+         ARTICLE FORM
+    ========================== -->
 
     <div class="card">
 
@@ -383,9 +393,7 @@
       </h2>
 
 
-      <label>
-        Article Title
-      </label>
+      <label>Article Title</label>
 
       <input
         type="text"
@@ -394,9 +402,22 @@
       >
 
 
-      <label>
-        Category
-      </label>
+      <label>Content Type</label>
+
+      <select id="articleType">
+
+        <option value="Article">
+          Article
+        </option>
+
+        <option value="Story">
+          Story
+        </option>
+
+      </select>
+
+
+      <label>Category</label>
 
       <select id="category">
 
@@ -451,26 +472,7 @@
       </select>
 
 
-      <label>
-        Article Type
-      </label>
-
-      <select id="articleType">
-
-        <option value="Article">
-          Article
-        </option>
-
-        <option value="Story">
-          Story
-        </option>
-
-      </select>
-
-
-      <label>
-        Short Description
-      </label>
+      <label>Short Description</label>
 
       <textarea
         id="description"
@@ -478,9 +480,7 @@
       ></textarea>
 
 
-      <label>
-        Full Article / Story
-      </label>
+      <label>Full Article / Story</label>
 
       <textarea
         id="content"
@@ -488,9 +488,7 @@
       ></textarea>
 
 
-      <label>
-        Article Image
-      </label>
+      <label>Article Image</label>
 
       <input
         type="file"
@@ -499,9 +497,7 @@
       >
 
 
-      <label>
-        Article Video (Optional)
-      </label>
+      <label>Article Video (Optional)</label>
 
       <input
         type="file"
@@ -519,6 +515,7 @@
       <button
         class="publish-btn"
         id="publishButton"
+        type="button"
       >
         Publish Article
       </button>
@@ -527,6 +524,7 @@
       <button
         class="cancel-btn hidden"
         id="cancelEditButton"
+        type="button"
       >
         Cancel Edit
       </button>
@@ -540,13 +538,13 @@
     </div>
 
 
-    <!-- ARTICLES LIST -->
+    <!-- =========================
+         ARTICLES LIST
+    ========================== -->
 
     <div class="card">
 
-      <h2>
-        Published Articles
-      </h2>
+      <h2>Published Articles</h2>
 
       <div id="articlesList">
         Loading articles...
@@ -561,10 +559,13 @@
 
 <script type="module">
 
+  /* =====================================
+     FIREBASE IMPORTS
+  ====================================== */
+
   import {
     initializeApp
-  }
-  from
+  } from
   "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 
@@ -574,8 +575,7 @@
     signInWithPhoneNumber,
     onAuthStateChanged,
     signOut
-  }
-  from
+  } from
   "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 
@@ -588,8 +588,7 @@
     updateDoc,
     deleteDoc,
     serverTimestamp
-  }
-  from
+  } from
   "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
@@ -598,12 +597,13 @@
     ref,
     uploadBytesResumable,
     getDownloadURL
-  }
-  from
+  } from
   "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
 
 
-  /* FIREBASE CONFIG */
+  /* =====================================
+     FIREBASE CONFIG
+  ====================================== */
 
   const firebaseConfig = {
 
@@ -623,13 +623,17 @@
       "997714850617",
 
     appId:
-      "1:997714850617:web:512eaa8131b882da25aee8",
+      "1:997714850617:web:5121b882da25aee8",
 
     measurementId:
       "G-G3D7KLK9BM"
 
   };
 
+
+  /* =====================================
+     INITIALIZE FIREBASE
+  ====================================== */
 
   const app =
     initializeApp(firebaseConfig);
@@ -647,7 +651,9 @@
     getStorage(app);
 
 
-  /* ADMIN PHONE */
+  /* =====================================
+     ADMIN PHONE
+  ====================================== */
 
   const ADMIN_PHONE =
     "+923313967373";
@@ -657,11 +663,17 @@
     null;
 
 
+  let recaptchaVerifier =
+    null;
+
+
   let editingArticleId =
     null;
 
 
-  /* ELEMENTS */
+  /* =====================================
+     ELEMENTS
+  ====================================== */
 
   const loginCard =
     document.getElementById(
@@ -684,6 +696,12 @@
   const verifyOtpButton =
     document.getElementById(
       "verifyOtpButton"
+    );
+
+
+  const resendOtpButton =
+    document.getElementById(
+      "resendOtpButton"
     );
 
 
@@ -717,122 +735,290 @@
     );
 
 
-  /* RECAPTCHA */
+  /* =====================================
+     STATUS FUNCTION
+  ====================================== */
 
-  let recaptchaVerifier;
+  function showLoginStatus(
+    message,
+    type
+  ) {
+
+    loginStatus.style.display =
+      "block";
+
+    loginStatus.className =
+      "status " + type;
+
+    loginStatus.textContent =
+      message;
+
+  }
 
 
-  function setupRecaptcha() {
+  /* =====================================
+     RECAPTCHA
+  ====================================== */
+
+  function createRecaptcha() {
+
+    try {
+
+      if (recaptchaVerifier) {
+
+        recaptchaVerifier.clear();
+
+      }
+
+    } catch (error) {
+
+      console.log(
+        "Old reCAPTCHA clear error:",
+        error
+      );
+
+    }
+
 
     recaptchaVerifier =
       new RecaptchaVerifier(
         auth,
         "recaptcha-container",
         {
-          size: "normal"
+
+          size: "normal",
+
+          callback: function() {
+
+            console.log(
+              "reCAPTCHA solved"
+            );
+
+          },
+
+          "expired-callback":
+            function() {
+
+              showLoginStatus(
+                "reCAPTCHA expired. Please try again.",
+                "error"
+              );
+
+            }
+
         }
       );
 
   }
 
 
-  setupRecaptcha();
+  /* =====================================
+     CREATE RECAPTCHA AFTER PAGE LOAD
+  ====================================== */
+
+  try {
+
+    createRecaptcha();
+
+  } catch (error) {
+
+    console.error(
+      "reCAPTCHA error:",
+      error
+    );
+
+  }
 
 
-  /* SEND OTP */
+  /* =====================================
+     SEND OTP
+  ====================================== */
 
-  sendOtpButton.addEventListener(
-    "click",
-    async () => {
+  async function sendOTP() {
+
+    try {
 
       sendOtpButton.disabled =
         true;
+
 
       sendOtpButton.textContent =
         "Sending OTP...";
 
 
-      loginStatus.style.display =
-        "block";
+      showLoginStatus(
+        "Please wait... Sending OTP.",
+        "success"
+      );
 
-      loginStatus.className =
-        "status";
 
-      loginStatus.textContent =
-        "Sending OTP...";
+      if (!recaptchaVerifier) {
+
+        createRecaptcha();
+
+      }
+
+
+      confirmationResult =
+        await signInWithPhoneNumber(
+          auth,
+          ADMIN_PHONE,
+          recaptchaVerifier
+        );
+
+
+      otpSection.classList.remove(
+        "hidden"
+      );
+
+
+      showLoginStatus(
+        "OTP sent successfully. Check your mobile.",
+        "success"
+      );
+
+
+      sendOtpButton.textContent =
+        "OTP Sent";
+
+
+    } catch (error) {
+
+      console.error(
+        "OTP ERROR:",
+        error
+      );
+
+
+      showLoginStatus(
+        firebaseErrorMessage(
+          error
+        ),
+        "error"
+      );
+
+
+      sendOtpButton.disabled =
+        false;
+
+
+      sendOtpButton.textContent =
+        "Send OTP";
 
 
       try {
 
-        confirmationResult =
-          await signInWithPhoneNumber(
-            auth,
-            ADMIN_PHONE,
-            recaptchaVerifier
-          );
-
-
-        otpSection.classList.remove(
-          "hidden"
-        );
-
-
-        loginStatus.className =
-          "status success";
-
-
-        loginStatus.textContent =
-          "OTP sent to your registered mobile number.";
-
-
-        sendOtpButton.textContent =
-          "OTP Sent";
-
-
-      } catch (error) {
-
-        console.error(error);
-
-
-        loginStatus.className =
-          "status error";
-
-
-        loginStatus.textContent =
-          getFirebaseError(
-            error
-          );
-
-
-        sendOtpButton.disabled =
-          false;
-
-
-        sendOtpButton.textContent =
-          "Send OTP";
-
-
-        try {
+        if (recaptchaVerifier) {
 
           recaptchaVerifier.clear();
 
-          setupRecaptcha();
+        }
 
-        } catch (e) {}
+      } catch (e) {}
 
-      }
+
+      recaptchaVerifier =
+        null;
+
+
+      setTimeout(
+        () => {
+
+          try {
+
+            createRecaptcha();
+
+          } catch (e) {
+
+            console.error(e);
+
+          }
+
+        },
+        500
+      );
+
+    }
+
+  }
+
+
+  sendOtpButton.addEventListener(
+    "click",
+    sendOTP
+  );
+
+
+  /* =====================================
+     RESEND OTP
+  ====================================== */
+
+  resendOtpButton.addEventListener(
+    "click",
+    async () => {
+
+      otpSection.classList.add(
+        "hidden"
+      );
+
+
+      sendOtpButton.disabled =
+        false;
+
+
+      sendOtpButton.textContent =
+        "Send OTP";
+
+
+      confirmationResult =
+        null;
+
+
+      try {
+
+        if (recaptchaVerifier) {
+
+          recaptchaVerifier.clear();
+
+        }
+
+      } catch (e) {}
+
+
+      recaptchaVerifier =
+        null;
+
+
+      document
+        .getElementById(
+          "recaptcha-container"
+        )
+        .innerHTML =
+        "";
+
+
+      setTimeout(
+        () => {
+
+          createRecaptcha();
+
+        },
+        300
+      );
 
     }
   );
 
 
-  /* VERIFY OTP */
+  /* =====================================
+     VERIFY OTP
+  ====================================== */
 
   verifyOtpButton.addEventListener(
     "click",
     async () => {
 
-      const code =
+      const otp =
         document
           .getElementById(
             "otpCode"
@@ -843,8 +1029,9 @@
 
       if (!confirmationResult) {
 
-        showLoginError(
-          "Please request OTP first."
+        showLoginStatus(
+          "Please click Send OTP first.",
+          "error"
         );
 
         return;
@@ -852,12 +1039,11 @@
       }
 
 
-      if (
-        !/^\d{6}$/.test(code)
-      ) {
+      if (!/^\d{6}$/.test(otp)) {
 
-        showLoginError(
-          "Please enter the 6 digit OTP."
+        showLoginStatus(
+          "Please enter the correct 6 digit OTP.",
+          "error"
         );
 
         return;
@@ -868,6 +1054,7 @@
       verifyOtpButton.disabled =
         true;
 
+
       verifyOtpButton.textContent =
         "Verifying...";
 
@@ -876,19 +1063,13 @@
 
         const result =
           await confirmationResult.confirm(
-            code
+            otp
           );
 
 
         const user =
           result.user;
 
-
-        /*
-          IMPORTANT SECURITY CHECK:
-          Only the specified phone number
-          can access Admin Panel.
-        */
 
         if (
           user.phoneNumber !==
@@ -897,39 +1078,34 @@
 
           await signOut(auth);
 
+
           throw new Error(
-            "This phone number is not authorized for Admin Panel."
+            "This phone number is not authorized as Admin."
           );
 
         }
 
 
-        loginStatus.className =
-          "status success";
-
-
-        loginStatus.textContent =
-          "OTP verified successfully!";
-
-
-        otpSection.classList.add(
-          "hidden"
+        showLoginStatus(
+          "Login successful!",
+          "success"
         );
 
 
       } catch (error) {
 
-        console.error(error);
+        console.error(
+          "VERIFY ERROR:",
+          error
+        );
 
 
-        loginStatus.className =
-          "status error";
-
-
-        loginStatus.textContent =
-          getFirebaseError(
+        showLoginStatus(
+          firebaseErrorMessage(
             error
-          );
+          ),
+          "error"
+        );
 
 
         verifyOtpButton.disabled =
@@ -945,7 +1121,9 @@
   );
 
 
-  /* AUTH STATE */
+  /* =====================================
+     AUTH STATE
+  ====================================== */
 
   onAuthStateChanged(
     auth,
@@ -986,7 +1164,9 @@
   );
 
 
-  /* LOGOUT */
+  /* =====================================
+     LOGOUT
+  ====================================== */
 
   document
     .getElementById(
@@ -996,15 +1176,27 @@
       "click",
       async () => {
 
-        await signOut(auth);
+        try {
 
-        location.reload();
+          await signOut(auth);
+
+          location.reload();
+
+        } catch (error) {
+
+          alert(
+            error.message
+          );
+
+        }
 
       }
     );
 
 
-  /* UPLOAD FILE */
+  /* =====================================
+     UPLOAD FILE
+  ====================================== */
 
   function uploadFile(
     file,
@@ -1027,7 +1219,7 @@
         const storageRef =
           ref(
             storage,
-            `${folder}/${fileName}`
+            folder + "/" + fileName
           );
 
 
@@ -1058,10 +1250,13 @@
                 "uploadProgress"
               )
               .textContent =
-              `Uploading ${file.name}: ${percent}%`;
+              "Uploading " +
+              file.name +
+              ": " +
+              percent +
+              "%";
 
           },
-
 
           (error) => {
 
@@ -1069,26 +1264,33 @@
 
           },
 
-
           async () => {
 
-            const url =
-              await getDownloadURL(
-                uploadTask.snapshot.ref
-              );
+            try {
+
+              const url =
+                await getDownloadURL(
+                  uploadTask.snapshot.ref
+                );
 
 
-            resolve({
+              resolve({
 
-              url: url,
+                url: url,
 
-              path:
-                uploadTask
-                  .snapshot
-                  .ref
-                  .fullPath
+                path:
+                  uploadTask
+                    .snapshot
+                    .ref
+                    .fullPath
 
-            });
+              });
+
+            } catch (error) {
+
+              reject(error);
+
+            }
 
           }
 
@@ -1100,7 +1302,9 @@
   }
 
 
-  /* PUBLISH / UPDATE */
+  /* =====================================
+     PUBLISH / UPDATE
+  ====================================== */
 
   publishButton.addEventListener(
     "click",
@@ -1115,258 +1319,5 @@
           .trim();
 
 
-      const category =
-        document
-          .getElementById(
-            "category"
-          )
-          .value;
-
-
       const type =
-        document
-          .getElementById(
-            "articleType"
-          )
-          .value;
-
-
-      const description =
-        document
-          .getElementById(
-            "description"
-          )
-          .value
-          .trim();
-
-
-      const content =
-        document
-          .getElementById(
-            "content"
-          )
-          .value
-          .trim();
-
-
-      const imageFile =
-        document
-          .getElementById(
-            "imageFile"
-          )
-          .files[0];
-
-
-      const videoFile =
-        document
-          .getElementById(
-            "videoFile"
-          )
-          .files[0];
-
-
-      if (
-        !title ||
-        !description ||
-        !content
-      ) {
-
-        showArticleStatus(
-          "Please fill title, description and full article.",
-          "error"
-        );
-
-        return;
-
-      }
-
-
-      publishButton.disabled =
-        true;
-
-
-      publishButton.textContent =
-        editingArticleId
-        ? "Updating..."
-        : "Publishing...";
-
-
-      document
-        .getElementById(
-          "uploadProgress"
-        )
-        .textContent =
-        "";
-
-
-      try {
-
-        let imageData =
-          null;
-
-
-        let videoData =
-          null;
-
-
-        if (imageFile) {
-
-          imageData =
-            await uploadFile(
-              imageFile,
-              "articles/images"
-            );
-
-        }
-
-
-        if (videoFile) {
-
-          videoData =
-            await uploadFile(
-              videoFile,
-              "articles/videos"
-            );
-
-        }
-
-
-        const articleData = {
-
-          title:
-            title,
-
-          category:
-            category,
-
-          type:
-            type,
-
-          description:
-            description,
-
-          content:
-            content,
-
-          status:
-            "published",
-
-          updatedAt:
-            serverTimestamp()
-
-        };
-
-
-        if (imageData) {
-
-          articleData.image =
-            imageData.url;
-
-          articleData.imagePath =
-            imageData.path;
-
-        }
-
-
-        if (videoData) {
-
-          articleData.video =
-            videoData.url;
-
-          articleData.videoPath =
-            videoData.path;
-
-        }
-
-
-        if (!editingArticleId) {
-
-          articleData.createdAt =
-            serverTimestamp();
-
-
-          articleData.date =
-            new Date()
-              .toISOString();
-
-
-          await addDoc(
-            collection(
-              db,
-              "articles"
-            ),
-            articleData
-          );
-
-
-          showArticleStatus(
-            "Article published successfully!",
-            "success"
-          );
-
-        } else {
-
-          await updateDoc(
-
-            doc(
-              db,
-              "articles",
-              editingArticleId
-            ),
-
-            articleData
-
-          );
-
-
-          showArticleStatus(
-            "Article updated successfully!",
-            "success"
-          );
-
-        }
-
-
-        clearForm();
-
-        await loadArticles();
-
-
-      } catch (error) {
-
-        console.error(error);
-
-
-        showArticleStatus(
-          error.message ||
-          "Something went wrong.",
-          "error"
-        );
-
-      }
-
-
-      publishButton.disabled =
-        false;
-
-
-      publishButton.textContent =
-        editingArticleId
-        ? "Update Article"
-        : "Publish Article";
-
-    }
-  );
-
-
-  /* LOAD ARTICLES */
-
-  async function loadArticles() {
-
-    const list =
-      document.getElementById(
-        "articlesList"
-      );
-
-
-    list.innerHT
+        docume
