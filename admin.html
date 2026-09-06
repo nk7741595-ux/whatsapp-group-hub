@@ -1,1036 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Pak Point - Admin Panel</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
-    }
-
-    .admin-header {
-      background: #111827;
-      color: white;
-      padding: 22px 20px;
-      text-align: center;
-    }
-
-    .admin-profile {
-      width: 85px;
-      height: 85px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 25%;
-      border: 3px solid white;
-      display: block;
-      margin: 0 auto 10px;
-    }
-
-    .admin-header h1 {
-      font-size: 27px;
-    }
-
-    .admin-header p {
-      margin-top: 5px;
-      color: #d1d5db;
-      font-size: 14px;
-    }
-
-    .container {
-      max-width: 950px;
-      margin: 25px auto;
-      padding: 0 15px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      margin-bottom: 18px;
-      font-size: 22px;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 7px;
-      font-weight: bold;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: #2563eb;
-    }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    button {
-      border: none;
-      border-radius: 8px;
-      padding: 12px 18px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .login-btn {
-      background: #dc2626;
-      color: white;
-      width: 100%;
-    }
-
-    .otp-btn {
-      background: #2563eb;
-      color: white;
-      width: 100%;
-    }
-
-    .publish-btn {
-      background: #16a34a;
-      color: white;
-      width: 100%;
-    }
-
-    .update-btn {
-      background: #2563eb;
-      color: white;
-    }
-
-    .delete-btn {
-      background: #dc2626;
-      color: white;
-    }
-
-    .logout-btn {
-      background: #374151;
-      color: white;
-      float: right;
-      margin-top: 0;
-    }
-
-    .cancel-btn {
-      background: #6b7280;
-      color: white;
-      margin-left: 8px;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .status {
-      padding: 12px;
-      border-radius: 8px;
-      margin-top: 15px;
-      display: none;
-    }
-
-    .success {
-      background: #dcfce7;
-      color: #166534;
-      display: block;
-    }
-
-    .error {
-      background: #fee2e2;
-      color: #991b1b;
-      display: block;
-    }
-
-    .article-item {
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 15px;
-    }
-
-    .article-item h3 {
-      margin-bottom: 8px;
-    }
-
-    .article-meta {
-      color: #6b7280;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-
-    .article-image {
-      width: 100%;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .progress {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #2563eb;
-      font-weight: bold;
-    }
-
-    .topbar {
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-
-    .topbar h2 {
-      display: inline-block;
-      margin: 0;
-      padding-top: 7px;
-    }
-
-    .otp-info {
-      background: #eff6ff;
-      color: #1e40af;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      font-size: 14px;
-    }
-
-    .recaptcha-box {
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
-
-    .small-note {
-      font-size: 13px;
-      color: #6b7280;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 600px) {
-      .admin-profile {
-        width: 70px;
-        height: 70px;
-      }
-
-      .admin-header h1 {
-        font-size: 23px;
-      }
-
-      .topbar h2 {
-        font-size: 19px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<header class="admin-header">
-
-  <img
-    src="profile.jpg"
-    alt="Admin Profile"
-    class="admin-profile"
-  >
-
-  <h1>PAK POINT</h1>
-
-  <p>
-    Admin Panel • News & Articles Management
-  </p>
-
-</header>
-
-
-<div class="container">
-
-  <!-- =========================
-       OTP LOGIN
-  ========================== -->
-
-  <div id="loginCard" class="card">
-
-    <h2>Admin OTP Login</h2>
-
-    <div class="otp-info">
-      صرف رجسٹرڈ Admin نمبر پر OTP بھیجا جائے گا۔
-    </div>
-
-    <label>Mobile Number</label>
-
-    <input
-      type="tel"
-      id="phoneNumber"
-      value="+923313967373"
-      readonly
-    >
-
-    <div
-      id="recaptcha-container"
-      class="recaptcha-box"
-    ></div>
-
-    <button
-      class="otp-btn"
-      id="sendOtpButton"
-      type="button"
-    >
-      Send OTP
-    </button>
-
-    <div
-      id="otpSection"
-      class="hidden"
-    >
-
-      <label>Enter OTP</label>
-
-      <input
-        type="text"
-        id="otpCode"
-        placeholder="Enter 6 digit OTP"
-        inputmode="numeric"
-        maxlength="6"
-      >
-
-      <button
-        class="login-btn"
-        id="verifyOtpButton"
-        type="button"
-      >
-        Verify OTP & Open Admin
-      </button>
-
-      <button
-        class="otp-btn"
-        id="resendOtpButton"
-        type="button"
-      >
-        Resend OTP
-      </button>
-
-    </div>
-
-    <div
-      id="loginStatus"
-      class="status"
-    ></div>
-
-  </div>
-
-
-  <!-- =========================
-       ADMIN AREA
-  ========================== -->
-
-  <div
-    id="adminArea"
-    class="hidden"
-  >
-
-    <!-- TOP BAR -->
-
-    <div class="card topbar">
-
-      <button
-        class="logout-btn"
-        id="logoutButton"
-        type="button"
-      >
-        Logout
-      </button>
-
-      <h2>Admin Dashboard</h2>
-
-    </div>
-
-
-    <!-- =========================
-         ARTICLE FORM
-    ========================== -->
-
-    <div class="card">
-
-      <h2 id="formTitle">
-        Publish New Article
-      </h2>
-
-
-      <label>Article Title</label>
-
-      <input
-        type="text"
-        id="title"
-        placeholder="Enter article title"
-      >
-
-
-      <label>Content Type</label>
-
-      <select id="articleType">
-
-        <option value="Article">
-          Article
-        </option>
-
-        <option value="Story">
-          Story
-        </option>
-
-      </select>
-
-
-      <label>Category</label>
-
-      <select id="category">
-
-        <option value="Pakistan">
-          Pakistan
-        </option>
-
-        <option value="World">
-          World
-        </option>
-
-        <option value="Breaking News">
-          Breaking News
-        </option>
-
-        <option value="Technology">
-          Technology
-        </option>
-
-        <option value="Business">
-          Business
-        </option>
-
-        <option value="Sports">
-          Sports
-        </option>
-
-        <option value="Entertainment">
-          Entertainment
-        </option>
-
-        <option value="Health">
-          Health
-        </option>
-
-        <option value="Education">
-          Education
-        </option>
-
-        <option value="Motivation">
-          Motivation
-        </option>
-
-        <option value="Knowledge">
-          Knowledge
-        </option>
-
-        <option value="Other">
-          Other
-        </option>
-
-      </select>
-
-
-      <label>Short Description</label>
-
-      <textarea
-        id="description"
-        placeholder="Write a short description..."
-      ></textarea>
-
-
-      <label>Full Article / Story</label>
-
-      <textarea
-        id="content"
-        placeholder="Write the complete article or story here..."
-      ></textarea>
-
-
-      <label>Article Image</label>
-
-      <input
-        type="file"
-        id="imageFile"
-        accept="image/*"
-      >
-
-
-      <label>Article Video (Optional)</label>
-
-      <input
-        type="file"
-        id="videoFile"
-        accept="video/*"
-      >
-
-
-      <div
-        id="uploadProgress"
-        class="progress"
-      ></div>
-
-
-      <button
-        class="publish-btn"
-        id="publishButton"
-        type="button"
-      >
-        Publish Article
-      </button>
-
-
-      <button
-        class="cancel-btn hidden"
-        id="cancelEditButton"
-        type="button"
-      >
-        Cancel Edit
-      </button>
-
-
-      <div
-        id="articleStatus"
-        class="status"
-      ></div>
-
-    </div>
-
-
-    <!-- =========================
-         ARTICLES LIST
-    ========================== -->
-
-    <div class="card">
-
-      <h2>Published Articles</h2>
-
-      <div id="articlesList">
-        Loading articles...
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<script type="module">
-
-  /* =====================================
-     FIREBASE IMPORTS
-  ====================================== */
-
-  import {
-    initializeApp
-  } from
-  "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
-
-  import {
-    getAuth,
-    RecaptchaVerifier,
-    signInWithPhoneNumber,
-    onAuthStateChanged,
-    signOut
-  } from
-  "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-
-
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    doc,
-    updateDoc,
-    deleteDoc,
-    serverTimestamp
-  } from
-  "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
-
-  import {
-    getStorage,
-    ref,
-    uploadBytesResumable,
-    getDownloadURL
-  } from
-  "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
-
-
-  /* =====================================
-     FIREBASE CONFIG
-  ====================================== */
-
-  const firebaseConfig = {
-
-    apiKey:
-      "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
-
-    authDomain:
-      "whatsapp-group-hub-2513a.firebaseapp.com",
-
-    projectId:
-      "whatsapp-group-hub-2513a",
-
-    storageBucket:
-      "whatsapp-group-hub-2513a.firebasestorage.app",
-
-    messagingSenderId:
-      "997714850617",
-
-    appId:
-      "1:997714850617:web:5121b882da25aee8",
-
-    measurementId:
-      "G-G3D7KLK9BM"
-
-  };
-
-
-  /* =====================================
-     INITIALIZE FIREBASE
-  ====================================== */
-
-  const app =
-    initializeApp(firebaseConfig);
-
-
-  const auth =
-    getAuth(app);
-
-
-  const db =
-    getFirestore(app);
-
-
-  const storage =
-    getStorage(app);
-
-
-  /* =====================================
-     ADMIN PHONE
-  ====================================== */
-
-  const ADMIN_PHONE =
-    "+923313967373";
-
-
-  let confirmationResult =
-    null;
-
-
-  let recaptchaVerifier =
-    null;
-
-
-  let editingArticleId =
-    null;
-
-
-  /* =====================================
-     ELEMENTS
-  ====================================== */
-
-  const loginCard =
-    document.getElementById(
-      "loginCard"
-    );
-
-
-  const adminArea =
-    document.getElementById(
-      "adminArea"
-    );
-
-
-  const sendOtpButton =
-    document.getElementById(
-      "sendOtpButton"
-    );
-
-
-  const verifyOtpButton =
-    document.getElementById(
-      "verifyOtpButton"
-    );
-
-
-  const resendOtpButton =
-    document.getElementById(
-      "resendOtpButton"
-    );
-
-
-  const otpSection =
-    document.getElementById(
-      "otpSection"
-    );
-
-
-  const loginStatus =
-    document.getElementById(
-      "loginStatus"
-    );
-
-
-  const articleStatus =
-    document.getElementById(
-      "articleStatus"
-    );
-
-
-  const publishButton =
-    document.getElementById(
-      "publishButton"
-    );
-
-
-  const cancelEditButton =
-    document.getElementById(
-      "cancelEditButton"
-    );
-
-
-  /* =====================================
-     STATUS FUNCTION
-  ====================================== */
-
-  function showLoginStatus(
-    message,
-    type
-  ) {
-
-    loginStatus.style.display =
-      "block";
-
-    loginStatus.className =
-      "status " + type;
-
-    loginStatus.textContent =
-      message;
-
-  }
-
-
-  /* =====================================
-     RECAPTCHA
-  ====================================== */
-
-  function createRecaptcha() {
-
-    try {
-
-      if (recaptchaVerifier) {
-
-        recaptchaVerifier.clear();
-
-      }
-
-    } catch (error) {
-
-      console.log(
-        "Old reCAPTCHA clear error:",
-        error
-      );
-
-    }
-
-
-    recaptchaVerifier =
-      new RecaptchaVerifier(
-        auth,
-        "recaptcha-container",
-        {
-
-          size: "normal",
-
-          callback: function() {
-
-            console.log(
-              "reCAPTCHA solved"
-            );
-
-          },
-
-          "expired-callback":
-            function() {
-
-              showLoginStatus(
-                "reCAPTCHA expired. Please try again.",
-                "error"
-              );
-
-            }
-
-        }
-      );
-
-  }
-
-
-  /* =====================================
-     CREATE RECAPTCHA AFTER PAGE LOAD
-  ====================================== */
-
-  try {
-
-    createRecaptcha();
-
-  } catch (error) {
-
-    console.error(
-      "reCAPTCHA error:",
-      error
-    );
-
-  }
-
-
-  /* =====================================
-     SEND OTP
-  ====================================== */
-
-  async function sendOTP() {
-
-    try {
-
-      sendOtpButton.disabled =
-        true;
-
-
-      sendOtpButton.textContent =
-        "Sending OTP...";
-
-
-      showLoginStatus(
-        "Please wait... Sending OTP.",
-        "success"
-      );
-
-
-      if (!recaptchaVerifier) {
-
-        createRecaptcha();
-
-      }
-
-
-      confirmationResult =
-        await signInWithPhoneNumber(
-          auth,
-          ADMIN_PHONE,
-          recaptchaVerifier
-        );
-
-
-      otpSection.classList.remove(
-        "hidden"
-      );
-
-
-      showLoginStatus(
-        "OTP sent successfully. Check your mobile.",
-        "success"
-      );
-
-
-      sendOtpButton.textContent =
-        "OTP Sent";
-
-
-    } catch (error) {
-
-      console.error(
-        "OTP ERROR:",
-        error
-      );
-
-
-      showLoginStatus(
-        firebaseErrorMessage(
-          error
-        ),
-        "error"
-      );
-
-
-      sendOtpButton.disabled =
-        false;
-
-
-      sendOtpButton.textContent =
-        "Send OTP";
-
-
-      try {
-
-        if (recaptchaVerifier) {
-
-          recaptchaVerifier.clear();
-
-        }
-
-      } catch (e) {}
-
-
-      recaptchaVerifier =
-        null;
-
-
-      setTimeout(
-        () => {
-
-          try {
-
-            createRecaptcha();
-
-          } catch (e) {
-
-            console.error(e);
-
-          }
-
-        },
-        500
-      );
-
-    }
-
-  }
-
-
-  sendOtpButton.addEventListener(
-    "click",
-    sendOTP
-  );
-
-
-  /* =====================================
-     RESEND OTP
-  ====================================== */
-
-  resendOtpButton.addEventListener(
-    "click",
-    async () => {
-
-      otpSection.classList.add(
-        "hidden"
-      );
-
-
-      sendOtpButton.disabled =
-        false;
-
-
-      sendOtpButton.textContent =
-        "Send OTP";
-
-
-      confirmationResult =
-        null;
-
-
-      try {
-
-        if (recaptchaVerifier) {
-
-          recaptchaVerifier.clear();
-
-        }
-
-      } catch (e) {}
-
-
-      recaptchaVerifier =
-        null;
-
-
-      document
-        .getElementById(
-          "recaptcha-container"
-        )
-        .innerHTML =
-        "";
-
-
-      setTimeout(
-        () => {
-
-          createRecaptcha();
-
-        },
-        300
-      );
-
-    }
-  );
-
-
-  /* =====================================
-     VERIFY OTP
-  ====================================== */
-
-  verifyOtpButton.addEventListener(
-    "click",
-    async () => {
-
-      const otp =
+      const type =
         document
           .getElementById(
-            "otpCode"
+            "articleType"
           )
           .value
           .trim();
 
 
-      if (!confirmationResult) {
+      const category =
+        document
+          .getElementById(
+            "category"
+          )
+          .value
+          .trim();
 
-        showLoginStatus(
-          "Please click Send OTP first.",
+
+      const description =
+        document
+          .getElementById(
+            "description"
+          )
+          .value
+          .trim();
+
+
+      const content =
+        document
+          .getElementById(
+            "content"
+          )
+          .value
+          .trim();
+
+
+      const imageFile =
+        document
+          .getElementById(
+            "imageFile"
+          )
+          .files[0];
+
+
+      const videoFile =
+        document
+          .getElementById(
+            "videoFile"
+          )
+          .files[0];
+
+
+      /* ================================
+         VALIDATION
+      ================================= */
+
+      if (!title) {
+
+        showArticleStatus(
+          "Please enter article title.",
           "error"
         );
 
@@ -1039,10 +66,10 @@
       }
 
 
-      if (!/^\d{6}$/.test(otp)) {
+      if (!description) {
 
-        showLoginStatus(
-          "Please enter the correct 6 digit OTP.",
+        showArticleStatus(
+          "Please enter short description.",
           "error"
         );
 
@@ -1051,87 +78,1131 @@
       }
 
 
-      verifyOtpButton.disabled =
+      if (!content) {
+
+        showArticleStatus(
+          "Please write the full article/story.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      /* ================================
+         BUTTON STATE
+      ================================= */
+
+      publishButton.disabled =
         true;
 
 
-      verifyOtpButton.textContent =
-        "Verifying...";
+      publishButton.textContent =
+        editingArticleId
+          ? "Updating..."
+          : "Publishing...";
+
+
+      document
+        .getElementById(
+          "uploadProgress"
+        )
+        .textContent =
+        "";
 
 
       try {
 
-        const result =
-          await confirmationResult.confirm(
-            otp
+        let imageURL = "";
+
+        let videoURL = "";
+
+
+        /* ==============================
+           IMAGE UPLOAD
+        =============================== */
+
+        if (imageFile) {
+
+          const uploadedImage =
+            await uploadFile(
+              imageFile,
+              "articles/images"
+            );
+
+
+          imageURL =
+            uploadedImage.url;
+
+        }
+
+
+        /* ==============================
+           VIDEO UPLOAD
+        =============================== */
+
+        if (videoFile) {
+
+          const uploadedVideo =
+            await uploadFile(
+              videoFile,
+              "articles/videos"
+            );
+
+
+          videoURL =
+            uploadedVideo.url;
+
+        }
+
+
+        /* ==============================
+           UPDATE EXISTING ARTICLE
+        =============================== */
+
+        if (editingArticleId) {
+
+          const articleRef =
+            doc(
+              db,
+              "articles",
+              editingArticleId
+            );
+
+
+          const updateData = {
+
+            title: title,
+
+            type: type,
+
+            category: category,
+
+            description: description,
+
+            content: content,
+
+            updatedAt:
+              serverTimestamp()
+
+          };
+
+
+          /*
+             Only replace image if
+             a new image was selected.
+          */
+
+          if (imageURL) {
+
+            updateData.image =
+              imageURL;
+
+          }
+
+
+          /*
+             Only replace video if
+             a new video was selected.
+          */
+
+          if (videoURL) {
+
+            updateData.video =
+              videoURL;
+
+          }
+
+
+          await updateDoc(
+            articleRef,
+            updateData
           );
 
 
-        const user =
-          result.user;
+          showArticleStatus(
+            "Article updated successfully!",
+            "success"
+          );
 
 
-        if (
-          user.phoneNumber !==
-          ADMIN_PHONE
-        ) {
+        }
 
-          await signOut(auth);
+        /* ==============================
+           PUBLISH NEW ARTICLE
+        =============================== */
+
+        else {
+
+          const articleData = {
+
+            title: title,
+
+            type: type,
+
+            category: category,
+
+            description: description,
+
+            content: content,
+
+            image: imageURL,
+
+            video: videoURL,
+
+            createdAt:
+              serverTimestamp(),
+
+            updatedAt:
+              serverTimestamp()
+
+          };
 
 
-          throw new Error(
-            "This phone number is not authorized as Admin."
+          await addDoc(
+            collection(
+              db,
+              "articles"
+            ),
+            articleData
+          );
+
+
+          showArticleStatus(
+            "Article published successfully!",
+            "success"
           );
 
         }
 
 
-        showLoginStatus(
-          "Login successful!",
-          "success"
-        );
+        /* ==============================
+           RESET FORM
+        =============================== */
+
+        resetArticleForm();
+
+
+        /* ==============================
+           RELOAD ARTICLES
+        =============================== */
+
+        await loadArticles();
 
 
       } catch (error) {
 
         console.error(
-          "VERIFY ERROR:",
+          "PUBLISH / UPDATE ERROR:",
           error
         );
 
 
-        showLoginStatus(
+        showArticleStatus(
           firebaseErrorMessage(
             error
           ),
           "error"
         );
 
-
-        verifyOtpButton.disabled =
-          false;
-
-
-        verifyOtpButton.textContent =
-          "Verify OTP & Open Admin";
-
       }
+
+
+      publishButton.disabled =
+        false;
+
+
+      publishButton.textContent =
+        editingArticleId
+          ? "Update Article"
+          : "Publish Article";
+
+
+      document
+        .getElementById(
+          "uploadProgress"
+        )
+        .textContent =
+        "";
 
     }
   );
 
 
   /* =====================================
-     AUTH STATE
+     ARTICLE STATUS
   ====================================== */
 
-  onAuthStateChanged(
-    auth,
-    (user) => {
+  function showArticleStatus(
+    message,
+    type
+  ) {
+
+    articleStatus.style.display =
+      "block";
+
+    articleStatus.className =
+      "status " + type;
+
+    articleStatus.textContent =
+      message;
+
+  }
+
+
+  /* =====================================
+     LOAD ARTICLES
+  ====================================== */
+
+  async function loadArticles() {
+
+    const articlesList =
+      document.getElementById(
+        "articlesList"
+      );
+
+
+    articlesList.innerHTML =
+      "Loading articles...";
+
+
+    try {
+
+      const snapshot =
+        await getDocs(
+          collection(
+            db,
+            "articles"
+          )
+        );
+
+
+      if (snapshot.empty) {
+
+        articlesList.innerHTML =
+          "<p>No articles published yet.</p>";
+
+        return;
+
+      }
+
+
+      const articles = [];
+
+
+      snapshot.forEach(
+        (articleDoc) => {
+
+          articles.push({
+
+            id:
+              articleDoc.id,
+
+            ...articleDoc.data()
+
+          });
+
+        }
+      );
+
+
+      /* =================================
+         SORT NEWEST FIRST
+      ================================== */
+
+      articles.sort(
+        (a, b) => {
+
+          const dateA =
+            a.createdAt &&
+            a.createdAt.toMillis
+              ? a.createdAt.toMillis()
+              : 0;
+
+
+          const dateB =
+            b.createdAt &&
+            b.createdAt.toMillis
+              ? b.createdAt.toMillis()
+              : 0;
+
+
+          return dateB - dateA;
+
+        }
+      );
+
+
+      articlesList.innerHTML =
+        "";
+
+
+      articles.forEach(
+        (article) => {
+
+          const item =
+            document.createElement(
+              "div"
+            );
+
+
+          item.className =
+            "article-item";
+
+
+          /* =================================
+             DATE
+          ================================== */
+
+          let dateText =
+            "Date unavailable";
+
+
+          if (
+            article.createdAt &&
+            article.createdAt.toDate
+          ) {
+
+            dateText =
+              article.createdAt
+                .toDate()
+                .toLocaleString();
+
+          }
+
+
+          /* =================================
+             IMAGE
+          ================================== */
+
+          let imageHTML =
+            "";
+
+
+          if (article.image) {
+
+            imageHTML = `
+
+              <img
+                src="${escapeHTML(article.image)}"
+                alt="${escapeHTML(article.title || "Article Image")}"
+                class="article-image"
+                loading="lazy"
+              >
+
+            `;
+
+          }
+
+
+          /* =================================
+             VIDEO
+          ================================== */
+
+          let videoHTML =
+            "";
+
+
+          if (article.video) {
+
+            videoHTML = `
+
+              <video
+                controls
+                style="
+                  width:100%;
+                  max-height:350px;
+                  margin-top:10px;
+                  border-radius:8px;
+                "
+              >
+
+                <source
+                  src="${escapeHTML(article.video)}"
+                >
+
+                Your browser does not support video.
+
+              </video>
+
+            `;
+
+          }
+
+
+          /* =================================
+             ARTICLE CONTENT PREVIEW
+          ================================== */
+
+          const contentPreview =
+            article.content
+              ? article.content
+                  .substring(
+                    0,
+                    300
+                  )
+                  +
+                  (
+                    article.content.length > 300
+                      ? "..."
+                      : ""
+                  )
+              : "";
+
+
+          item.innerHTML = `
+
+            <h3>
+              ${escapeHTML(
+                article.title ||
+                "Untitled Article"
+              )}
+            </h3>
+
+
+            <div class="article-meta">
+
+              ${escapeHTML(
+                article.type ||
+                "Article"
+              )}
+
+              •
+
+              ${escapeHTML(
+                article.category ||
+                "Other"
+              )}
+
+              •
+
+              ${escapeHTML(
+                dateText
+              )}
+
+            </div>
+
+
+            ${
+              article.description
+                ? `
+                  <p>
+                    <strong>Description:</strong>
+                    ${escapeHTML(
+                      article.description
+                    )}
+                  </p>
+                `
+                : ""
+            }
+
+
+            ${
+              contentPreview
+                ? `
+                  <p style="margin-top:10px;">
+                    <strong>Content:</strong>
+                    ${escapeHTML(
+                      contentPreview
+                    )}
+                  </p>
+                `
+                : ""
+            }
+
+
+            ${imageHTML}
+
+
+            ${videoHTML}
+
+
+            <div class="button-row">
+
+              <button
+                class="update-btn"
+                type="button"
+                data-action="edit"
+                data-id="${article.id}"
+              >
+                Edit
+              </button>
+
+
+              <button
+                class="delete-btn"
+                type="button"
+                data-action="delete"
+                data-id="${article.id}"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          `;
+
+
+          articlesList.appendChild(
+            item
+          );
+
+        }
+      );
+
+
+      /* =================================
+         EDIT BUTTONS
+      ================================== */
+
+      articlesList
+        .querySelectorAll(
+          '[data-action="edit"]'
+        )
+        .forEach(
+          (button) => {
+
+            button.addEventListener(
+              "click",
+              () => {
+
+                const id =
+                  button.dataset.id;
+
+
+                const article =
+                  articles.find(
+                    (item) =>
+                      item.id === id
+                  );
+
+
+                if (article) {
+
+                  editArticle(
+                    article
+                  );
+
+                }
+
+              }
+            );
+
+          }
+        );
+
+
+      /* =================================
+         DELETE BUTTONS
+      ================================== */
+
+      articlesList
+        .querySelectorAll(
+          '[data-action="delete"]'
+        )
+        .forEach(
+          (button) => {
+
+            button.addEventListener(
+              "click",
+              () => {
+
+                const id =
+                  button.dataset.id;
+
+
+                deleteArticle(
+                  id
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+    } catch (error) {
+
+      console.error(
+        "LOAD ARTICLES ERROR:",
+        error
+      );
+
+
+      articlesList.innerHTML = `
+
+        <div class="status error">
+
+          Failed to load articles.
+
+          <br><br>
+
+          ${escapeHTML(
+            firebaseErrorMessage(
+              error
+            )
+          )}
+
+        </div>
+
+      `;
+
+    }
+
+  }
+
+
+  /* =====================================
+     EDIT ARTICLE
+  ====================================== */
+
+  function editArticle(
+    article
+  ) {
+
+    editingArticleId =
+      article.id;
+
+
+    document
+      .getElementById(
+        "title"
+      )
+      .value =
+      article.title || "";
+
+
+    document
+      .getElementById(
+        "articleType"
+      )
+      .value =
+      article.type || "Article";
+
+
+    document
+      .getElementById(
+        "category"
+      )
+      .value =
+      article.category || "Other";
+
+
+    document
+      .getElementById(
+        "description"
+      )
+      .value =
+      article.description || "";
+
+
+    document
+      .getElementById(
+        "content"
+      )
+      .value =
+      article.content || "";
+
+
+    document
+      .getElementById(
+        "imageFile"
+      )
+      .value =
+      "";
+
+
+    document
+      .getElementById(
+        "videoFile"
+      )
+      .value =
+      "";
+
+
+    document
+      .getElementById(
+        "formTitle"
+      )
+      .textContent =
+      "Edit Article";
+
+
+    publishButton.textContent =
+      "Update Article";
+
+
+    cancelEditButton
+      .classList
+      .remove(
+        "hidden"
+      );
+
+
+    articleStatus.style.display =
+      "none";
+
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+  }
+
+
+  /* =====================================
+     CANCEL EDIT
+  ====================================== */
+
+  cancelEditButton.addEventListener(
+    "click",
+    () => {
+
+      resetArticleForm();
+
+    }
+  );
+
+
+  /* =====================================
+     RESET ARTICLE FORM
+  ====================================== */
+
+  function resetArticleForm() {
+
+    editingArticleId =
+      null;
+
+
+    document
+      .getElementById(
+        "title"
+      )
+      .value =
+      "";
+
+
+    document
+      .getElementById(
+        "articleType"
+      )
+      .value =
+      "Article";
+
+
+    document
+      .getElementById(
+        "category"
+      )
+      .value =
+      "Pakistan";
+
+
+    document
+      .getElementById(
+        "description"
+      )
+      .value =
+      "";
+
+
+    document
+      .getElementById(
+        "content"
+      )
+      .value =
+      "";
+
+
+    document
+      .getElementById(
+        "imageFile"
+      )
+      .value =
+      "";
+
+
+    document
+      .getElementById(
+        "videoFile"
+      )
+      .value =
+      "";
+
+
+    document
+      .getElementById(
+        "formTitle"
+      )
+      .textContent =
+      "Publish New Article";
+
+
+    publishButton.textContent =
+      "Publish Article";
+
+
+    cancelEditButton
+      .classList
+      .add(
+        "hidden"
+      );
+
+
+    document
+      .getElementById(
+        "uploadProgress"
+      )
+      .textContent =
+      "";
+
+  }
+
+
+  /* =====================================
+     DELETE ARTICLE
+  ====================================== */
+
+  async function deleteArticle(
+    articleId
+  ) {
+
+    const confirmed =
+      confirm(
+        "Are you sure you want to delete this article?"
+      );
+
+
+    if (!confirmed) {
+
+      return;
+
+    }
+
+
+    try {
+
+      await deleteDoc(
+        doc(
+          db,
+          "articles",
+          articleId
+        )
+      );
+
+
+      showArticleStatus(
+        "Article deleted successfully!",
+        "success"
+      );
+
+
+      await loadArticles();
+
+
+    } catch (error) {
+
+      console.error(
+        "DELETE ERROR:",
+        error
+      );
+
+
+      showArticleStatus(
+        firebaseErrorMessage(
+          error
+        ),
+        "error"
+      );
+
+    }
+
+  }
+
+
+  /* =====================================
+     ESCAPE HTML
+     Prevent HTML injection
+  ====================================== */
+
+  function escapeHTML(
+    value
+  ) {
+
+    if (
+      value === null ||
+      value === undefined
+    ) {
+
+      return "";
+
+    }
+
+
+    return String(value)
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+      .replace(
+        /</g,
+        "&lt;"
+      )
+      .replace(
+        />/g,
+        "&gt;"
+      )
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+
+  }
+
+
+  /* =====================================
+     FIREBASE ERROR MESSAGE
+  ====================================== */
+
+  function firebaseErrorMessage(
+    error
+  ) {
+
+    const code =
+      error &&
+      error.code
+        ? error.code
+        : "";
+
+
+    const message =
+      error &&
+      error.message
+        ? error.message
+        : "";
+
+
+    switch (code) {
+
+      case "auth/invalid-phone-number":
+
+        return "Invalid mobile number.";
+
+
+      case "auth/too-many-requests":
+
+        return "Too many attempts. Please try again later.";
+
+
+      case "auth/invalid-verification-code":
+
+        return "Incorrect OTP. Please check the 6 digit code.";
+
+
+      case "auth/code-expired":
+
+        return "OTP has expired. Please request a new OTP.";
+
+
+      case "auth/quota-exceeded":
+
+        return "OTP limit exceeded. Please try again later.";
+
+
+      case "auth/captcha-check-failed":
+
+        return "reCAPTCHA verification failed. Please try again.";
+
+
+      case "auth/network-request-failed":
+
+        return "Network error. Please check your internet connection.";
+
+
+      case "storage/unauthorized":
+
+        return "Storage permission denied. Please check Firebase Storage Rules.";
+
+
+      case "storage/canceled":
+
+        return "File upload was canceled.";
+
+
+      case "storage/unknown":
+
+        return "Unknown storage error occurred.";
+
+
+      case "permission-denied":
+
+      case "firestore/permission-denied":
+
+        return "Firestore permission denied. Please check Firestore Rules.";
+
+
+      default:
+
+        return message ||
+          "Something went wrong. Please try again.";
+
+    }
+
+  }
+
+
+  /* =====================================
+     OTP INPUT - ONLY NUMBERS
+  ====================================== */
+
+  document
+    .getElementById(
+      "otpCode"
+    )
+    .addEventListener(
+      "input",
+      function () {
+
+        this.value =
+          this.value
+            .replace(
+              /\D/g,
+              ""
+            )
+            .slice(
+              0,
+              6
+            );
+
+      }
+    );
+
+
+  /* =====================================
+     PAGE VISIBILITY / AUTH CHECK
+  ====================================== */
+
+  window.addEventListener(
+    "pageshow",
+    () => {
+
+      const currentUser =
+        auth.currentUser;
+
 
       if (
-        user &&
-        user.phoneNumber ===
+        currentUser &&
+        currentUser.phoneNumber ===
         ADMIN_PHONE
       ) {
 
@@ -1144,180 +1215,12 @@
           "hidden"
         );
 
-
-        loadArticles();
-
-      } else {
-
-        loginCard.classList.remove(
-          "hidden"
-        );
-
-
-        adminArea.classList.add(
-          "hidden"
-        );
-
       }
 
     }
   );
 
+</script>
 
-  /* =====================================
-     LOGOUT
-  ====================================== */
-
-  document
-    .getElementById(
-      "logoutButton"
-    )
-    .addEventListener(
-      "click",
-      async () => {
-
-        try {
-
-          await signOut(auth);
-
-          location.reload();
-
-        } catch (error) {
-
-          alert(
-            error.message
-          );
-
-        }
-
-      }
-    );
-
-
-  /* =====================================
-     UPLOAD FILE
-  ====================================== */
-
-  function uploadFile(
-    file,
-    folder
-  ) {
-
-    return new Promise(
-      (resolve, reject) => {
-
-        const fileName =
-          Date.now() +
-          "_" +
-          Math.random()
-            .toString(36)
-            .substring(2) +
-          "_" +
-          file.name;
-
-
-        const storageRef =
-          ref(
-            storage,
-            folder + "/" + fileName
-          );
-
-
-        const uploadTask =
-          uploadBytesResumable(
-            storageRef,
-            file
-          );
-
-
-        uploadTask.on(
-
-          "state_changed",
-
-          (snapshot) => {
-
-            const percent =
-              Math.round(
-                (
-                  snapshot.bytesTransferred /
-                  snapshot.totalBytes
-                ) * 100
-              );
-
-
-            document
-              .getElementById(
-                "uploadProgress"
-              )
-              .textContent =
-              "Uploading " +
-              file.name +
-              ": " +
-              percent +
-              "%";
-
-          },
-
-          (error) => {
-
-            reject(error);
-
-          },
-
-          async () => {
-
-            try {
-
-              const url =
-                await getDownloadURL(
-                  uploadTask.snapshot.ref
-                );
-
-
-              resolve({
-
-                url: url,
-
-                path:
-                  uploadTask
-                    .snapshot
-                    .ref
-                    .fullPath
-
-              });
-
-            } catch (error) {
-
-              reject(error);
-
-            }
-
-          }
-
-        );
-
-      }
-    );
-
-  }
-
-
-  /* =====================================
-     PUBLISH / UPDATE
-  ====================================== */
-
-  publishButton.addEventListener(
-    "click",
-    async () => {
-
-      const title =
-        document
-          .getElementById(
-            "title"
-          )
-          .value
-          .trim();
-
-
-      const type =
-        docume
+</body>
+</html>
