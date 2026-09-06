@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Article | Pak Point</title>
+
+  <meta name="description" content="Read the complete article on Pak Point.">
+  <meta name="robots" content="index, follow">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: #111827;
+      color: #fff;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 13px;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f766e;
+    }
+
+    .logo span {
+      color: #111827;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    nav a:hover {
+      color: #0f766e;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px 50px;
+    }
+
+    .article-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    }
+
+    .article-image {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      display: block;
+      background: #e5e7eb;
+    }
+
+    .article-body {
+      padding: 30px;
+    }
+
+    .category {
+      display: inline-block;
+      background: #0f766e;
+      color: #fff;
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .article-title {
+      font-size: 38px;
+      line-height: 1.25;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 20px;
+    }
+
+    .article-meta strong {
+      color: #0f766e;
+    }
+
+    .article-description {
+      font-size: 18px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .article-content {
+      font-size: 17px;
+      color: #1f2937;
+      line-height: 1.9;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+    }
+
+    .share-box {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .share-title {
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 7px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .whatsapp {
+      background: #25D366;
+    }
+
+    .facebook {
+      background: #1877F2;
+    }
+
+    .email {
+      background: #374151;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #0f766e;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .back-button:hover {
+      text-decoration: underline;
+    }
+
+    .loading {
+      text-align: center;
+      background: #fff;
+      padding: 50px 20px;
+      border-radius: 14px;
+      color: #6b7280;
+    }
+
+    .error {
+      text-align: center;
+      background: #fff;
+      padding: 50px 20px;
+      border-radius: 14px;
+      color: #b91c1c;
+    }
+
+    footer {
+      margin-top: 20px;
+      background: #111827;
+      color: #d1d5db;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    footer strong {
+      color: #fff;
+    }
+
+    footer p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .article-image {
+        height: 260px;
+      }
+
+      .article-body {
+        padding: 20px;
+      }
+
+      .article-title {
+        font-size: 28px;
+      }
+
+      .article-description {
+        font-size: 16px;
+      }
+
+      .article-content {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    Pak Point — News, Information & Updates
+  </div>
+
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="logo">
+        Pak<span>Point</span>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html">Latest News</a>
+        <a href="index.html">Pakistan</a>
+        <a href="index.html">World</a>
+        <a href="index.html">Technology</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <a href="index.html" class="back-button">
+      ← Back to Pak Point
+    </a>
+
+    <div id="articleArea">
+
+      <div class="loading">
+        Loading article...
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <strong>© 2026 Pak Point</strong>
+    <p>All rights reserved.</p>
+  </footer>
+
+
+  <script type="module">
+
+    import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+    import {
+      getFirestore,
+      doc,
+      getDoc
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
+
+      authDomain:
+        "whatsapp-group-hub-2513a.firebaseapp.com",
+
+      projectId:
+        "whatsapp-group-hub-2513a",
+
+      storageBucket:
+        "whatsapp-group-hub-2513a.firebasestorage.app",
+
+      messagingSenderId:
+        "997714850617",
+
+      appId:
+        "1:997714850617:web:512eaa8131b882da25aee8",
+
+      measurementId:
+        "G-G3D7KLK9BM"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+
+    const db = getFirestore(app);
+
+
+    const articleArea =
+      document.getElementById("articleArea");
+
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const articleId =
+      params.get("id");
+
+
+    function escapeHTML(value = "") {
+
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    }
+
+
+    function formatDate(value) {
+
+      if (!value) return "";
+
+      try {
+
+        const date =
+          value.toDate
+            ? value.toDate()
+            : new Date(value);
+
+        return date.toLocaleDateString(
+          "en-US",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }
+        );
+
+      } catch {
+
+        return "";
+
+      }
+
+    }
+
+
+    function imageOrPlaceholder(url) {
+
+      if (
+        url &&
+        String(url).trim()
+      ) {
+
+        return escapeHTML(url);
+
+      }
+
+      return "https://via.placeholder.com/1200x650?text=Pak+Point";
+
+    }
+
+
+    async function loadArticle() {
+
+      if (!articleId) {
+
+        articleArea.innerHTML = `
+
+          <div class="error">
+
+            <h2>Article Not Found</h2>
+
+            <p>
+              No article ID was provided.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+      }
+
+
+      try {
+
+        const articleRef =
+          doc(
+            db,
+            "articles",
+            articleId
+          );
+
+
+        const articleSnap =
+          await getDoc(articleRef);
+
+
+        if (!articleSnap.exists()) {
+
+          articleArea.innerHTML = `
+
+            <div class="error">
+
+              <h2>Article Not Found</h2>
+
+              <p>
+                The requested article
+                could not be found.
+              </p>
+
+            </div>
+
+          `;
+
+          return;
+        }
+
+
+        const article =
+          articleSnap.data();
+
+
+        const title =
+          escapeHTML(
+            article.title ||
+            "Pak Point Article"
+          );
+
+
+        const category =
+          escapeHTML(
+            article.category ||
+            "News"
+          );
+
+
+        const description =
+          escapeHTML(
+            article.description ||
+            ""
+          );
+
+
+        const content =
+          escapeHTML(
+            article.content ||
+            ""
+          );
+
+
+        const image =
+          imageOrPlaceholder(
+            article.image
+          );
+
+
+        const date =
+          formatDate(
+            article.createdAt ||
+            article.updatedAt
+          );
+
+
+        document.title =
+          title + " | Pak Point";
+
+
+        const currentUrl =
+          window.location.href;
+
+
+        const shareText =
+          encodeURIComponent(
+            title + " - Pak Point"
+          );
+
+
+        const whatsappUrl =
+          "https://wa.me/?text=" +
+          shareText +
+          "%20" +
+          encodeURIComponent(
+            currentUrl
+          );
+
+
+        const facebookUrl =
+          "https://www.facebook.com/sharer/sharer.php?u=" +
+          encodeURIComponent(
+            currentUrl
+          );
+
+
+        const emailUrl =
+          "mailto:?subject=" +
+          shareText +
+          "&body=" +
+          encodeURIComponent(
+            currentUrl
+          );
+
+
+        articleArea.innerHTML = `
+
+          <article class="article-card">
+
+            <img
+              class="article-image"
+              src="${image}"
+              alt="${title}"
+              onerror="this.src='https://via.placeholder.com/1200x650?text=Pak+Point'"
+            >
+
+            <div class="article-body">
+
+              <span class="category">
+                ${category}
+              </span>
+
+
+              <h1 class="article-title">
+                ${title}
+              </h1>
+
+
+              <div class="article-meta">
+
+                By
+                <strong>
+                  Muhammad Naveed
+                </strong>
+
+                ${
+                  date
+                    ? " • Published on " + date
+                    : ""
+                }
+
+              </div>
+
+
+              ${
+                description
+                  ? `
+
+                    <div class="article-description">
+
+                      ${description}
+
+                    </div>
+
+                  `
+                  : ""
+              }
+
+
+              <div class="article-content">
+
+                ${content}
+
+              </div>
+
+
+              <div class="share-box">
+
+                <div class="share-title">
+                  Share this article
+                </div>
+
+
+                <div class="share-buttons">
+
+
+                  <a
+                    class="share-btn whatsapp"
+                    href="${whatsappUrl}"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    WhatsApp
+                  </a>
+
+
+                  <a
+                    class="share-btn facebook"
+                    href="${facebookUrl}"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Facebook
+                  </a>
+
+
+                  <a
+                    class="share-btn email"
+                    href="${emailUrl}"
+                  >
+                    Email
+                  </a>
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `;
+
+      } catch (error) {
+
+        console.error(
+          "Article loading error:",
+          error
+        );
+
+
+        articleArea.innerHTML = `
+
+          <div class="error">
+
+            <h2>
+              Article Load Error
+            </h2>
+
+            <p>
+              Article load nahi ho raha.
+              Firebase/Firestore settings
+              check karein.
+            </p>
+
+          </div>
+
+        `;
+
+      }
+
+    }
+
+
+    loadArticle();
+
+  </script>
+
+</body>
+  </html>
