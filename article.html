@@ -6,270 +6,256 @@
 
   <title>Article | Pak Point</title>
 
-  <meta name="description" content="Read the complete article on Pak Point.">
+  <meta name="description" content="Read the latest news and informative articles on Pak Point.">
   <meta name="robots" content="index, follow">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
-      line-height: 1.8;
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f3f4f6;
+      color:#111827;
+      line-height:1.7;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .topbar {
-      background: #111827;
-      color: #fff;
-      text-align: center;
-      padding: 8px 15px;
-      font-size: 13px;
+    /* TOP BAR */
+    .topbar{
+      background:#111827;
+      color:#fff;
+      text-align:center;
+      padding:8px;
+      font-size:13px;
     }
 
-    header {
-      background: #fff;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 20;
+    /* HEADER */
+    header{
+      background:#fff;
+      border-bottom:1px solid #e5e7eb;
+      position:sticky;
+      top:0;
+      z-index:20;
     }
 
-    .header-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .header-inner{
+      max-width:1200px;
+      margin:auto;
+      padding:15px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      color: #0f766e;
+    .logo{
+      font-size:28px;
+      font-weight:800;
+      color:#0f766e;
     }
 
-    .logo span {
-      color: #111827;
+    .logo span{
+      color:#111827;
     }
 
-    nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+    nav{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
     }
 
-    nav a {
-      font-weight: 600;
-      font-size: 14px;
-      color: #374151;
+    nav a{
+      font-weight:600;
+      font-size:14px;
+      color:#374151;
     }
 
-    nav a:hover {
-      color: #0f766e;
+    nav a:hover{
+      color:#0f766e;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px 20px 50px;
+    /* BREAKING */
+    .breaking{
+      background:#0f766e;
+      color:#fff;
     }
 
-    .article-card {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    .breaking-inner{
+      max-width:1200px;
+      margin:auto;
+      padding:9px 20px;
+      font-size:14px;
     }
 
-    .article-image {
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
-      display: block;
-      background: #e5e7eb;
+    /* MAIN */
+    .container{
+      max-width:1000px;
+      margin:auto;
+      padding:30px 20px;
     }
 
-    .article-body {
-      padding: 30px;
+    .article-box{
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid #e5e7eb;
+      box-shadow:0 3px 12px rgba(0,0,0,.06);
     }
 
-    .category {
-      display: inline-block;
-      background: #0f766e;
-      color: #fff;
-      padding: 5px 11px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 12px;
+    .article-image{
+      width:100%;
+      max-height:550px;
+      object-fit:cover;
+      display:block;
+      background:#e5e7eb;
     }
 
-    .article-title {
-      font-size: 38px;
-      line-height: 1.25;
-      color: #111827;
-      margin-bottom: 12px;
+    .article-body{
+      padding:30px;
     }
 
-    .article-meta {
-      color: #6b7280;
-      font-size: 14px;
-      margin-bottom: 25px;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 20px;
+    .badge{
+      display:inline-block;
+      background:#0f766e;
+      color:#fff;
+      padding:5px 10px;
+      border-radius:5px;
+      font-size:12px;
+      font-weight:bold;
+      margin-bottom:12px;
     }
 
-    .article-meta strong {
-      color: #0f766e;
+    .article-title{
+      font-size:38px;
+      line-height:1.25;
+      margin-bottom:12px;
+      color:#111827;
     }
 
-    .article-description {
-      font-size: 18px;
-      font-weight: 600;
-      color: #374151;
-      margin-bottom: 25px;
-      line-height: 1.7;
+    .article-meta{
+      color:#0f766e;
+      font-size:13px;
+      font-weight:bold;
+      margin-bottom:22px;
     }
 
-    .article-content {
-      font-size: 17px;
-      color: #1f2937;
-      line-height: 1.9;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+    .description{
+      font-size:18px;
+      font-weight:600;
+      color:#374151;
+      margin-bottom:25px;
+      padding-bottom:20px;
+      border-bottom:1px solid #e5e7eb;
     }
 
-    .article-content p {
-      margin-bottom: 20px;
+    .content{
+      font-size:17px;
+      color:#1f2937;
+      white-space:pre-wrap;
+      word-wrap:break-word;
     }
 
-    .share-box {
-      margin-top: 35px;
-      padding-top: 25px;
-      border-top: 1px solid #e5e7eb;
+    .content p{
+      margin-bottom:18px;
     }
 
-    .share-title {
-      font-weight: bold;
-      margin-bottom: 12px;
-      font-size: 16px;
+    .article-video{
+      width:100%;
+      max-height:600px;
+      margin-top:25px;
+      border-radius:10px;
+      background:#000;
     }
 
-    .share-buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    /* BACK BUTTON */
+    .back{
+      display:inline-block;
+      margin-bottom:20px;
+      background:#111827;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:7px;
+      font-weight:bold;
+      font-size:14px;
     }
 
-    .share-btn {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 7px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
+    .back:hover{
+      background:#0f766e;
     }
 
-    .whatsapp {
-      background: #25D366;
+    /* ERROR */
+    .message{
+      background:#fff;
+      padding:40px 25px;
+      text-align:center;
+      border-radius:12px;
+      color:#6b7280;
     }
 
-    .facebook {
-      background: #1877F2;
+    .message h2{
+      color:#111827;
+      margin-bottom:10px;
     }
 
-    .email {
-      background: #374151;
+    /* FOOTER */
+    footer{
+      margin-top:45px;
+      background:#111827;
+      color:#d1d5db;
+      padding:35px 20px;
+      text-align:center;
     }
 
-    .back-button {
-      display: inline-block;
-      margin-bottom: 20px;
-      color: #0f766e;
-      font-weight: bold;
-      font-size: 15px;
+    footer a{
+      color:#fff;
     }
 
-    .back-button:hover {
-      text-decoration: underline;
+    .contact{
+      margin-top:10px;
     }
 
-    .loading {
-      text-align: center;
-      background: #fff;
-      padding: 50px 20px;
-      border-radius: 14px;
-      color: #6b7280;
-    }
+    /* MOBILE */
+    @media(max-width:800px){
 
-    .error {
-      text-align: center;
-      background: #fff;
-      padding: 50px 20px;
-      border-radius: 14px;
-      color: #b91c1c;
-    }
-
-    footer {
-      margin-top: 20px;
-      background: #111827;
-      color: #d1d5db;
-      padding: 35px 20px;
-      text-align: center;
-    }
-
-    footer strong {
-      color: #fff;
-    }
-
-    footer p {
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 700px) {
-
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
       }
 
-      nav {
-        gap: 12px;
+      nav{
+        gap:10px;
       }
 
-      .article-image {
-        height: 260px;
+      .container{
+        padding:20px 12px;
       }
 
-      .article-body {
-        padding: 20px;
+      .article-body{
+        padding:20px;
       }
 
-      .article-title {
-        font-size: 28px;
+      .article-title{
+        font-size:28px;
       }
 
-      .article-description {
-        font-size: 16px;
+      .description{
+        font-size:16px;
       }
 
-      .article-content {
-        font-size: 16px;
-        line-height: 1.8;
+      .content{
+        font-size:16px;
+      }
+
+      .article-image{
+        max-height:350px;
       }
     }
   </style>
@@ -277,50 +263,115 @@
 
 <body>
 
+  <!-- TOP BAR -->
   <div class="topbar">
     Pak Point — News, Information & Updates
   </div>
 
+  <!-- HEADER -->
   <header>
     <div class="header-inner">
 
-      <a href="index.html" class="logo">
-        Pak<span>Point</span>
+      <a class="logo" href="index.html">
+        Pak <span>Point</span>
       </a>
 
       <nav>
         <a href="index.html">Home</a>
-        <a href="index.html">Latest News</a>
-        <a href="index.html">Pakistan</a>
-        <a href="index.html">World</a>
-        <a href="index.html">Technology</a>
+
+        <a href="index.html"
+           onclick="saveCategory('Pakistan')">
+          Pakistan
+        </a>
+
+        <a href="index.html"
+           onclick="saveCategory('World')">
+          World
+        </a>
+
+        <a href="index.html"
+           onclick="saveCategory('Technology')">
+          Technology
+        </a>
+
+        <a href="index.html"
+           onclick="saveCategory('Lifestyle')">
+          Lifestyle
+        </a>
+
+        <a href="index.html">
+          All News
+        </a>
       </nav>
 
     </div>
   </header>
 
+  <!-- BREAKING -->
+  <div class="breaking">
+    <div class="breaking-inner">
+      <strong>BREAKING:</strong>
+      Latest important updates and news from Pak Point
+    </div>
+  </div>
+
+  <!-- MAIN -->
   <main class="container">
 
-    <a href="index.html" class="back-button">
+    <a href="index.html" class="back">
       ← Back to Pak Point
     </a>
 
-    <div id="articleArea">
+    <div id="articleContainer">
 
-      <div class="loading">
-        Loading article...
+      <div class="message">
+        <h2>Loading article...</h2>
+        <p>Please wait.</p>
       </div>
 
     </div>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
+
     <strong>© 2026 Pak Point</strong>
-    <p>All rights reserved.</p>
+
+    <p>
+      All rights reserved.
+    </p>
+
+    <div class="contact">
+
+      <a
+        href="https://wa.me/923397381786"
+        target="_blank"
+        rel="noopener">
+        WhatsApp
+      </a>
+
+      &nbsp; | &nbsp;
+
+      <a href="mailto:nk7741595@gmail.com">
+        Email
+      </a>
+
+      &nbsp; | &nbsp;
+
+      <a
+        href="https://www.facebook.com/share/14jPJR3FZNZ/"
+        target="_blank"
+        rel="noopener">
+        Facebook
+      </a>
+
+    </div>
+
   </footer>
 
 
+  <!-- FIREBASE -->
   <script type="module">
 
     import { initializeApp }
@@ -333,9 +384,12 @@
     } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
+    /* FIREBASE CONFIG */
+
     const firebaseConfig = {
 
-      apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
+      apiKey:
+        "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
 
       authDomain:
         "whatsapp-group-hub-2513a.firebaseapp.com",
@@ -357,36 +411,38 @@
     };
 
 
+    /* INITIALIZE FIREBASE */
+
     const app = initializeApp(firebaseConfig);
 
     const db = getFirestore(app);
 
 
-    const articleArea =
-      document.getElementById("articleArea");
+    /* DOM */
+
+    const articleContainer =
+      document.getElementById("articleContainer");
 
 
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-
-    const articleId =
-      params.get("id");
-
+    /* HTML SECURITY */
 
     function escapeHTML(value = "") {
 
       return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
 
+        .replaceAll("&", "&amp;")
+
+        .replaceAll("<", "&lt;")
+
+        .replaceAll(">", "&gt;")
+
+        .replaceAll('"', "&quot;")
+
+        .replaceAll("'", "&#039;");
     }
 
+
+    /* DATE */
 
     function formatDate(value) {
 
@@ -411,49 +467,73 @@
       } catch {
 
         return "";
-
       }
-
     }
 
 
-    function imageOrPlaceholder(url) {
+    /* IMAGE */
+
+    function getImage(url) {
 
       if (
         url &&
         String(url).trim()
       ) {
 
-        return escapeHTML(url);
-
+        return String(url)
+          .replaceAll('"', "&quot;");
       }
 
-      return "https://via.placeholder.com/1200x650?text=Pak+Point";
+      return "";
+    }
+
+
+    /* GET ARTICLE ID */
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    const articleId =
+      params.get("id");
+
+
+    /* NO ID */
+
+    if (!articleId) {
+
+      articleContainer.innerHTML = `
+
+        <div class="message">
+
+          <h2>Article Not Found</h2>
+
+          <p>
+            No article ID was provided.
+          </p>
+
+          <br>
+
+          <a href="index.html"
+             class="back">
+             Go to Homepage
+          </a>
+
+        </div>
+
+      `;
+
+    } else {
+
+      loadArticle();
 
     }
 
 
+    /* LOAD ARTICLE */
+
     async function loadArticle() {
-
-      if (!articleId) {
-
-        articleArea.innerHTML = `
-
-          <div class="error">
-
-            <h2>Article Not Found</h2>
-
-            <p>
-              No article ID was provided.
-            </p>
-
-          </div>
-
-        `;
-
-        return;
-      }
-
 
       try {
 
@@ -464,23 +544,31 @@
             articleId
           );
 
-
         const articleSnap =
           await getDoc(articleRef);
 
 
+        /* ARTICLE DOES NOT EXIST */
+
         if (!articleSnap.exists()) {
 
-          articleArea.innerHTML = `
+          articleContainer.innerHTML = `
 
-            <div class="error">
+            <div class="message">
 
               <h2>Article Not Found</h2>
 
               <p>
-                The requested article
-                could not be found.
+                This article does not exist
+                or has been removed.
               </p>
+
+              <br>
+
+              <a href="index.html"
+                 class="back">
+                 ← Back to Homepage
+              </a>
 
             </div>
 
@@ -494,12 +582,43 @@
           articleSnap.data();
 
 
+        /* ONLY PUBLISHED ARTICLES */
+
+        if (article.status !== "published") {
+
+          articleContainer.innerHTML = `
+
+            <div class="message">
+
+              <h2>Article Unavailable</h2>
+
+              <p>
+                This article is not currently
+                available.
+              </p>
+
+              <br>
+
+              <a href="index.html"
+                 class="back">
+                 ← Back to Homepage
+              </a>
+
+            </div>
+
+          `;
+
+          return;
+        }
+
+
+        /* DATA */
+
         const title =
           escapeHTML(
             article.title ||
-            "Pak Point Article"
+            "Pak Point News"
           );
-
 
         const category =
           escapeHTML(
@@ -507,26 +626,17 @@
             "News"
           );
 
-
         const description =
           escapeHTML(
             article.description ||
             ""
           );
 
-
         const content =
           escapeHTML(
             article.content ||
-            ""
+            "No article content available."
           );
-
-
-        const image =
-          imageOrPlaceholder(
-            article.image
-          );
-
 
         const date =
           formatDate(
@@ -534,60 +644,47 @@
             article.updatedAt
           );
 
+        const image =
+          getImage(article.image);
+
+        const video =
+          getImage(article.video);
+
+
+        /* PAGE TITLE */
 
         document.title =
-          title + " | Pak Point";
+          (article.title || "Article") +
+          " | Pak Point";
 
 
-        const currentUrl =
-          window.location.href;
+        /* DISPLAY ARTICLE */
 
+        articleContainer.innerHTML = `
 
-        const shareText =
-          encodeURIComponent(
-            title + " - Pak Point"
-          );
+          <article class="article-box">
 
+            ${
+              image
+              ?
+              `
+              <img
+                class="article-image"
+                src="${image}"
+                alt="${title}"
+                onerror="
+                  this.style.display='none';
+                "
+              >
+              `
+              :
+              ""
+            }
 
-        const whatsappUrl =
-          "https://wa.me/?text=" +
-          shareText +
-          "%20" +
-          encodeURIComponent(
-            currentUrl
-          );
-
-
-        const facebookUrl =
-          "https://www.facebook.com/sharer/sharer.php?u=" +
-          encodeURIComponent(
-            currentUrl
-          );
-
-
-        const emailUrl =
-          "mailto:?subject=" +
-          shareText +
-          "&body=" +
-          encodeURIComponent(
-            currentUrl
-          );
-
-
-        articleArea.innerHTML = `
-
-          <article class="article-card">
-
-            <img
-              class="article-image"
-              src="${image}"
-              alt="${title}"
-              onerror="this.src='https://via.placeholder.com/1200x650?text=Pak+Point'"
-            >
 
             <div class="article-body">
 
-              <span class="category">
+              <span class="badge">
                 ${category}
               </span>
 
@@ -599,15 +696,12 @@
 
               <div class="article-meta">
 
-                By
-                <strong>
-                  Muhammad Naveed
-                </strong>
+                Pak Point
 
                 ${
                   date
-                    ? " • Published on " + date
-                    : ""
+                  ? " • " + escapeHTML(date)
+                  : ""
                 }
 
               </div>
@@ -615,73 +709,51 @@
 
               ${
                 description
-                  ? `
-
-                    <div class="article-description">
-
-                      ${description}
-
-                    </div>
-
-                  `
-                  : ""
+                ?
+                `
+                <div class="description">
+                  ${description}
+                </div>
+                `
+                :
+                ""
               }
 
 
-              <div class="article-content">
-
+              <div class="content">
                 ${content}
-
               </div>
 
 
-              <div class="share-box">
+              ${
+                video
+                ?
+                `
+                <video
+                  class="article-video"
+                  controls
+                  preload="metadata"
+                >
 
-                <div class="share-title">
-                  Share this article
-                </div>
-
-
-                <div class="share-buttons">
-
-
-                  <a
-                    class="share-btn whatsapp"
-                    href="${whatsappUrl}"
-                    target="_blank"
-                    rel="noopener"
+                  <source
+                    src="${video}"
                   >
-                    WhatsApp
-                  </a>
 
+                  Your browser does not support
+                  video playback.
 
-                  <a
-                    class="share-btn facebook"
-                    href="${facebookUrl}"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Facebook
-                  </a>
-
-
-                  <a
-                    class="share-btn email"
-                    href="${emailUrl}"
-                  >
-                    Email
-                  </a>
-
-
-                </div>
-
-              </div>
+                </video>
+                `
+                :
+                ""
+              }
 
             </div>
 
           </article>
 
         `;
+
 
       } catch (error) {
 
@@ -691,19 +763,29 @@
         );
 
 
-        articleArea.innerHTML = `
+        articleContainer.innerHTML = `
 
-          <div class="error">
+          <div class="message">
 
             <h2>
               Article Load Error
             </h2>
 
             <p>
-              Article load nahi ho raha.
+              Article load nahi ho saka.
+            </p>
+
+            <p>
               Firebase/Firestore settings
               check karein.
             </p>
+
+            <br>
+
+            <a href="index.html"
+               class="back">
+               ← Back to Homepage
+            </a>
 
           </div>
 
@@ -714,9 +796,26 @@
     }
 
 
-    loadArticle();
+    /* CATEGORY */
+
+    window.saveCategory = function(category) {
+
+      try {
+
+        localStorage.setItem(
+          "pakPointCategory",
+          category
+        );
+
+      } catch (error) {
+
+        console.log(error);
+
+      }
+
+    };
 
   </script>
 
 </body>
-  </html>
+    </html>
