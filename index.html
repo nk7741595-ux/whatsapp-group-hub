@@ -1,475 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel | WhatsApp Group Hub</title>
+
+  <title>Pak Point | Articles & Stories</title>
+
+  <meta name="description" content="Pak Point پر دلچسپ Articles، Stories، معلوماتی اور سبق آموز تحریریں پڑھیں۔">
+
+  <meta name="keywords" content="Pak Point, Articles, Stories, Urdu Stories, Urdu Articles, معلوماتی مضامین, سبق آموز کہانیاں">
+
+  <meta name="author" content="Pak Point">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
+    * {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, "Noto Nastaliq Urdu", sans-serif;
+      background: #f5f6f8;
+      color: #222;
+      line-height: 1.8;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-box {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 45px 25px;
+      background: linear-gradient(135deg, #1e3a8a, #111827);
+      color: white;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 17px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
+      padding: 10px 15px 40px;
     }
 
-    .box {
+    .section-title {
+      font-size: 25px;
+      margin: 25px 0 15px;
+      border-right: 5px solid #2563eb;
+      padding-right: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
       background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+      transition: .2s;
     }
 
-    input {
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
       width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      height: 190px;
+      object-fit: cover;
     }
 
-    button {
-      padding: 10px 18px;
-      border: 0;
-      border-radius: 6px;
-      cursor: pointer;
-      margin: 5px;
-    }
-
-    .login {
-      background: #128c7e;
-      color: white;
-    }
-
-    .approve {
-      background: #198754;
-      color: white;
-    }
-
-    .reject {
-      background: #dc3545;
-      color: white;
-    }
-
-    .logout {
-      background: #333;
-      color: white;
-    }
-
-    .group {
-      border: 1px solid #ddd;
+    .card-content {
       padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
     }
 
-    #adminPanel {
-      display: none;
+    .category {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 7px;
     }
 
-    #message {
-      font-weight: bold;
-      margin: 10px 0;
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .read-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #111827;
+      color: white;
+      padding: 7px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .read-btn:hover {
+      background: #2563eb;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .header-box {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        margin: 15px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+  <div class="header-box">
 
-  <div class="box" id="loginBox">
-    <h2>Admin Login</h2>
+    <a href="index.html" class="logo">Pak Point</a>
 
-    <input
-      type="email"
-      id="email"
-      placeholder="Admin Email"
-    >
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#articles">Articles</a>
+      <a href="#stories">Stories</a>
+      <a href="#motivation">Motivation</a>
+      <a href="#knowledge">Knowledge</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-    <input
-      type="password"
-      id="password"
-      placeholder="Password"
-    >
+  </div>
+</header>
 
-    <button class="login" id="loginBtn">
-      Login
-    </button>
 
-    <div id="loginMessage"></div>
+<section class="hero">
+
+  <h1>Pak Point</h1>
+
+  <p>
+    دلچسپ Articles، سبق آموز Stories اور معلوماتی تحریروں کی دنیا
+  </p>
+
+</section>
+
+
+<main class="container">
+
+  <h2 class="section-title" id="articles">
+    📰 Latest Articles
+  </h2>
+
+  <div class="cards">
+
+    <article class="card">
+
+      <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=80"
+           alt="Article">
+
+      <div class="card-content">
+
+        <span class="category">Article</span>
+
+        <h3>
+          کامیابی حاصل کرنے کے لیے کیا کرنا چاہیے؟
+        </h3>
+
+        <p>
+          زندگی میں کامیابی صرف خواہش کرنے سے نہیں ملتی بلکہ مسلسل محنت اور صحیح فیصلوں کی ضرورت ہوتی ہے۔
+        </p>
+
+        <a href="#" class="read-btn">
+          مکمل پڑھیں →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+           alt="Knowledge">
+
+      <div class="card-content">
+
+        <span class="category">Knowledge</span>
+
+        <h3>
+          روزمرہ زندگی کی دلچسپ معلومات
+        </h3>
+
+        <p>
+          ایسی معلومات جو آپ کی عام زندگی میں بھی کام آ سکتی ہیں اور آپ کے علم میں اضافہ کرتی ہیں۔
+        </p>
+
+        <a href="#" class="read-btn">
+          مکمل پڑھیں →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
+           alt="Story">
+
+      <div class="card-content">
+
+        <span class="category">Story</span>
+
+        <h3>
+          ایک چھوٹی سی کہانی، بڑا سبق
+        </h3>
+
+        <p>
+          ایک سبق آموز کہانی جو ہمیں زندگی میں صبر، محنت اور اچھے کردار کی اہمیت بتاتی ہے۔
+        </p>
+
+        <a href="#" class="read-btn">
+          مکمل کہانی پڑھیں →
+        </a>
+
+      </div>
+
+    </article>
+
   </div>
 
 
-  <div id="adminPanel">
+  <h2 class="section-title" id="stories">
+    📖 Latest Stories
+  </h2>
 
-    <div class="box">
-      <h2>WhatsApp Group Hub - Admin Panel</h2>
+  <div class="cards">
 
-      <p>
-        Logged in as:
-        <strong id="adminEmail"></strong>
-      </p>
+    <article class="card">
 
-      <button class="logout" id="logoutBtn">
-        Logout
-      </button>
-    </div>
+      <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=900&q=80"
+           alt="Urdu Story">
 
+      <div class="card-content">
 
-    <div class="box">
-      <h2>Pending Groups</h2>
-      <div id="pendingGroups">
-        Loading...
+        <span class="category">Story</span>
+
+        <h3>
+          ایک غریب لڑکے کی حیران کن کہانی
+        </h3>
+
+        <p>
+          مشکلات کے باوجود ہمت نہ ہارنے والے ایک نوجوان کی دلچسپ اور سبق آموز داستان۔
+        </p>
+
+        <a href="#" class="read-btn">
+          کہانی پڑھیں →
+        </a>
+
       </div>
-    </div>
+
+    </article>
 
 
-    <div class="box">
-      <h2>Approved Groups</h2>
-      <div id="approvedGroups">
-        Loading...
+    <article class="card">
+
+      <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=900&q=80"
+           alt="Motivational Story">
+
+      <div class="card-content">
+
+        <span class="category">Motivation</span>
+
+        <h3>
+          ہار کے بعد جیت کیسے حاصل کی؟
+        </h3>
+
+        <p>
+          ناکامی کو کامیابی کی پہلی سیڑھی بنانے والی ایک متاثر کن کہانی۔
+        </p>
+
+        <a href="#" class="read-btn">
+          کہانی پڑھیں →
+        </a>
+
       </div>
-    </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"
+           alt="Life Story">
+
+      <div class="card-content">
+
+        <span class="category">Life</span>
+
+        <h3>
+          زندگی بدل دینے والا ایک فیصلہ
+        </h3>
+
+        <p>
+          بعض اوقات زندگی کا ایک فیصلہ انسان کی پوری زندگی بدل دیتا ہے۔
+        </p>
+
+        <a href="#" class="read-btn">
+          کہانی پڑھیں →
+        </a>
+
+      </div>
+
+    </article>
 
   </div>
 
-</div>
 
+  <h2 class="section-title" id="motivation">
+    💡 Motivation
+  </h2>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="card-content">
+        <span class="category">Motivation</span>
+        <h3>خود پر یقین کیسے پیدا کریں؟</h3>
+        <p>
+          کامیابی کی طرف پہلا قدم اپنے آپ پر اعتماد کرنا ہے۔
+        </p>
+        <a href="#" class="read-btn">پڑھیں →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <span class="category">Motivation</span>
+        <h3>مشکل وقت میں ہمت کیسے رکھیں؟</h3>
+        <p>
+          زندگی کے مشکل حالات کا مقابلہ کرنے کے لیے مثبت سوچ ضروری ہے۔
+        </p>
+        <a href="#" class="read-btn">پڑھیں →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-content">
+        <span class="category">Motivation</span>
+        <h3>کامیاب لوگوں کی چند عادات</h3>
+        <p>
+          کامیاب لوگ اپنی روزمرہ زندگی میں کچھ خاص عادات اپناتے ہیں۔
+        </p>
+        <a href="#" class="read-btn">پڑھیں →</a>
+      </div>
+    </article>
+
+  </div>
+
+</main>
+
+
+<footer id="contact">
+
+  <h3>Pak Point</h3>
+
+  <p>
+    Articles • Stories • Motivation • Knowledge
+  </p>
+
+  <p>
+    © 2026 Pak Point — All Rights Reserved
+  </p>
+
+</footer>
 
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  updateDoc,
-  deleteDoc
-}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDrjmV4GAHg2HPj_8961MPh1msjVU7dcdY",
-  authDomain: "whatsapp-group-hub-2513a.firebaseapp.com",
-  projectId: "whatsapp-group-hub-2513a",
-  storageBucket: "whatsapp-group-hub-2513a.firebasestorage.app",
-  messagingSenderId: "997714850617",
-  appId: "1:997714850617:web:512eaa8131b882da25aee8",
-  measurementId: "G-G3D7KLK9BM"
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
-
-const ADMIN_EMAIL = "nk7741595@gmail.com";
-
-
-const loginBox = document.getElementById("loginBox");
-const adminPanel = document.getElementById("adminPanel");
-
-const loginBtn = document.getElementById("loginBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-
-const loginMessage = document.getElementById("loginMessage");
-
-const adminEmail = document.getElementById("adminEmail");
-
-const pendingGroups =
-  document.getElementById("pendingGroups");
-
-const approvedGroups =
-  document.getElementById("approvedGroups");
-
-
-loginBtn.addEventListener("click", async () => {
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-
-  if (email !== ADMIN_EMAIL) {
-
-    loginMessage.textContent =
-      "Only admin can login.";
-
-    return;
-  }
-
-
-  try {
-
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-  } catch (error) {
-
-    loginMessage.textContent =
-      "Login failed. Check email and password.";
-
-  }
-
-});
-
-
-logoutBtn.addEventListener("click", async () => {
-
-  await signOut(auth);
-
-});
-
-
-onAuthStateChanged(auth, async (user) => {
-
-  if (user && user.email === ADMIN_EMAIL) {
-
-    loginBox.style.display = "none";
-
-    adminPanel.style.display = "block";
-
-    adminEmail.textContent = user.email;
-
-    await loadGroups();
-
-  } else {
-
-    loginBox.style.display = "block";
-
-    adminPanel.style.display = "none";
-
-  }
-
-});
-
-
-async function loadGroups() {
-
-  pendingGroups.innerHTML = "Loading...";
-  approvedGroups.innerHTML = "Loading...";
-
-
-  try {
-
-    const pendingQuery = query(
-      collection(db, "groups"),
-      where("status", "==", "pending")
-    );
-
-    const approvedQuery = query(
-      collection(db, "groups"),
-      where("status", "==", "approved")
-    );
-
-
-    const pendingSnapshot =
-      await getDocs(pendingQuery);
-
-    const approvedSnapshot =
-      await getDocs(approvedQuery);
-
-
-    pendingGroups.innerHTML = "";
-    approvedGroups.innerHTML = "";
-
-
-    if (pendingSnapshot.empty) {
-
-      pendingGroups.innerHTML =
-        "<p>No pending groups.</p>";
-
-    } else {
-
-      pendingSnapshot.forEach(groupDoc => {
-
-        showGroup(
-          pendingGroups,
-          groupDoc,
-          true
-        );
-
-      });
-
-    }
-
-
-    if (approvedSnapshot.empty) {
-
-      approvedGroups.innerHTML =
-        "<p>No approved groups.</p>";
-
-    } else {
-
-      approvedSnapshot.forEach(groupDoc => {
-
-        showGroup(
-          approvedGroups,
-          groupDoc,
-          false
-        );
-
-      });
-
-    }
-
-
-  } catch (error) {
-
-    console.error(error);
-
-    pendingGroups.innerHTML =
-      "<p>Unable to load groups.</p>";
-
-    approvedGroups.innerHTML =
-      "<p>Unable to load groups.</p>";
-
-  }
-
-}
-
-
-function showGroup(container, groupDoc, isPending) {
-
-  const group = groupDoc.data();
-
-  const div = document.createElement("div");
-
-  div.className = "group";
-
-
-  const title =
-    document.createElement("h3");
-
-  title.textContent =
-    group.name || "WhatsApp Group";
-
-
-  const category =
-    document.createElement("p");
-
-  category.textContent =
-    "Category: " + (group.category || "");
-
-
-  const description =
-    document.createElement("p");
-
-  description.textContent =
-    group.description || "";
-
-
-  const link =
-    document.createElement("a");
-
-  link.href = group.link;
-
-  link.textContent = "Open WhatsApp Group";
-
-  link.target = "_blank";
-
-  link.rel = "noopener noreferrer";
-
-
-  div.appendChild(title);
-  div.appendChild(category);
-  div.appendChild(description);
-  div.appendChild(link);
-
-
-  if (isPending) {
-
-    const approve =
-      document.createElement("button");
-
-    approve.className = "approve";
-
-    approve.textContent = "Approve";
-
-
-    approve.addEventListener(
-      "click",
-      async () => {
-
-        await updateDoc(
-          doc(db, "groups", groupDoc.id),
-          {
-            status: "approved"
-          }
-        );
-
-        await loadGroups();
-
-      }
-    );
-
-
-    const reject =
-      document.createElement("button");
-
-    reject.className = "reject";
-
-    reject.textContent = "Reject";
-
-
-    reject.addEventListener(
-      "click",
-      async () => {
-
-        await deleteDoc(
-          doc(db, "groups", groupDoc.id)
-        );
-
-        await loadGroups();
-
-      }
-    );
-
-
-    div.appendChild(
-      document.createElement("br")
-    );
-
-    div.appendChild(approve);
-    div.appendChild(reject);
-
-  }
-
-
-  container.appendChild(div);
-
-}
-
-</script>
 
 </body>
-</html>
+  </html>
